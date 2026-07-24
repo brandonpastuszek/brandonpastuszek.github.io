@@ -4,16 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Resume of Brandon Joseph Pastuszek, Lead Software Engineer">
-  <title>Brandon Joseph Pastuszek — Resume</title>
+  <title>Brandon Joseph Pastuszek — Print Resume</title>
   <style>
     :root {
-      --ink: #f8fafc;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, .1);
-      --line: rgba(255, 255, 255, .1);
-      --paper: #1e293b;
-      --canvas: #0f172a;
+      --ink: #172033;
+      --muted: #5d6678;
+      --accent: #176b87;
+      --accent-soft: transparent;
+      --line: #d9e1e7;
+      --paper: #ffffff;
+      --canvas: #ffffff;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -24,29 +24,30 @@
       font: 15px/1.55 Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       text-rendering: optimizeLegibility;
     }
-    a { color: inherit; text-decoration-color: rgba(56, 189, 248, .55); text-underline-offset: 3px; }
+    a { color: inherit; text-decoration-color: #91afbb; text-underline-offset: 3px; }
     a:hover { color: var(--accent); }
     .resume {
       width: min(100% - 32px, 960px);
       margin: 32px auto;
       background: var(--paper);
-      border: 1px solid rgba(255, 255, 255, .05);
-      border-radius: 20px;
-      box-shadow: 0 18px 60px rgba(0, 0, 0, .3);
+      border: 1px solid var(--line);
+      border-radius: 0;
+      box-shadow: none;
       overflow: hidden;
     }
     header {
       position: relative;
       padding: 46px 54px 38px;
       color: var(--ink);
-      background: #0f172a;
+      border-bottom: 5px solid var(--accent);
+      background: #ffffff;
     }
     header::after {
       content: "";
       position: absolute;
       inset: auto 0 0;
       height: 5px;
-      background: var(--accent);
+      display: none;
     }
     h1 {
       margin: 0;
@@ -112,9 +113,10 @@
       position: relative;
       margin: 0;
       padding: 10px 11px 10px 26px;
+      border: 1px solid var(--line);
       border-radius: 8px;
-      background: var(--accent-soft);
-      color: #cbd5e1;
+      background: transparent;
+      color: #334454;
       font-size: .8rem;
       font-weight: 650;
       font-style: italic;
@@ -129,13 +131,9 @@
       font: 700 1.6rem/1 Georgia, serif;
     }
     .more-recognition { margin-top: 9px; color: var(--muted); font-size: .74rem; }
-    .experience + .experience { margin-top: 16px; }
+    .experience + .experience { margin-top: 30px; }
     .experience {
       position: relative;
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: rgba(255, 255, 255, .025);
       break-inside: avoid;
       page-break-inside: avoid;
     }
@@ -154,10 +152,9 @@
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: 12px;
-      background: rgba(255, 255, 255, .04);
+      background: white;
     }
     .company-mark img { display: block; width: 100%; height: 100%; object-fit: contain; padding: 0; }
-    .experience:nth-of-type(3) .company-mark img { filter: brightness(0) invert(1); }
     .company-meta { color: var(--muted); font-size: .86rem; }
     .roles { margin: 0 0 12px 59px; }
     .role {
@@ -178,7 +175,7 @@
       position: relative;
       margin-top: 8px;
       padding-left: 15px;
-      color: #cbd5e1;
+      color: #343e50;
       font-size: .91rem;
     }
     .achievements li::before {
@@ -194,54 +191,31 @@
     .summary {
       margin-bottom: 32px;
       padding: 17px 20px;
+      border-top: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
       border-left: 4px solid var(--accent);
       border-radius: 0 9px 9px 0;
-      background: var(--accent-soft);
-      color: #cbd5e1;
+      background: transparent;
+      color: #334454;
     }
     .print-note {
       width: min(100% - 32px, 960px);
       margin: -13px auto 30px;
-      color: #94a3b8;
+      color: #6d7480;
       font-size: .8rem;
       text-align: center;
     }
-    .print-action {
-      position: fixed;
-      z-index: 10;
-      top: 18px;
-      right: 18px;
-      padding: 11px 16px;
-      border: 1px solid rgba(255, 255, 255, .12);
-      border-radius: 10px;
-      color: var(--ink);
-      background: #1e293b;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
-      font-size: .82rem;
-      font-weight: 700;
-      text-decoration: none;
-    }
-    .print-action:hover { color: #0f172a; border-color: var(--accent); background: var(--accent); }
     @media (max-width: 740px) {
       .resume { width: 100%; margin: 0; border-radius: 0; }
       header { padding: 36px 24px 30px; }
       .content { grid-template-columns: 1fr; gap: 34px; padding: 32px 24px 40px; }
       aside { padding: 0; border: 0; }
       .print-note { display: none; }
-      .print-action { display: none; }
     }
     @page { size: Letter; margin: .48in .52in .52in; }
     @media print {
-      .print-action { display: none !important; }
-      :root {
-        --ink: #111827;
-        --muted: #4b5563;
-        --accent: #12637d;
-        --accent-soft: #eaf5f8;
-        --line: #d9e1e7;
-        --paper: #ffffff;
-        --canvas: #ffffff;
-      }
+      :root { --ink: #111827; --muted: #4b5563; --accent: #12637d; --line: #d9e1e7; }
       html, body { background: #ffffff !important; color: var(--ink) !important; }
       body { font-size: 9.35pt; line-height: 1.38; }
       .resume { width: auto; margin: 0; border: 0; border-radius: 0; background: #ffffff !important; box-shadow: none; overflow: visible; }
@@ -250,17 +224,14 @@
         color: var(--ink) !important;
         border-bottom: 5px solid #176b87;
         background: #ffffff !important;
-        print-color-adjust: exact;
-        -webkit-print-color-adjust: exact;
       }
       header::after { display: none; }
       h1 { font-size: 27pt; }
       .headline { margin: 5px 0 11px; color: var(--muted) !important; font-size: 9pt; }
       .contact { gap: 5px 15px; color: var(--ink) !important; font-size: 8.3pt; }
       .contact svg { width: 12px; height: 12px; }
-      .content { grid-template-columns: 1.05fr 3fr; gap: .26in; padding: .25in .28in 0; background: #ffffff !important; }
-      aside { padding-right: .2in; border-color: var(--line) !important; background: #ffffff !important; }
-      main, section { background: transparent !important; }
+      .content { grid-template-columns: 1.05fr 3fr; gap: .26in; padding: .25in .28in 0; }
+      aside { padding-right: .2in; }
       section + section { margin-top: 20px; }
       h2 { margin-bottom: 10px; font-size: 8pt; }
       h3 { font-size: 9.6pt; }
@@ -277,12 +248,9 @@
       .more-recognition { margin-top: 5px; font-size: 6.3pt; }
       .summary { margin-bottom: 18px; padding: 10px 12px; border-top: 1px solid var(--line); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); color: #334454 !important; background: transparent !important; }
       .experience + .experience { margin-top: 18px; }
-      .experience { padding: 0; border: 0; border-radius: 0; background: transparent !important; }
       .experience-head { grid-template-columns: 36px minmax(0, 1fr); gap: 10px; margin-bottom: 7px; }
-      .company-mark { width: 36px; height: 36px; border-radius: 8px; background: white; }
-      .experience:nth-of-type(3) .company-mark img { filter: none; }
+      .company-mark { width: 36px; height: 36px; border-radius: 8px; }
       .company-meta, .role, .achievements li { font-size: 8.15pt; }
-      .achievements li { color: #343e50; }
       .roles, .achievements { margin-left: 46px; }
       .roles { margin-bottom: 7px; }
       .achievements li { margin-top: 4px; padding-left: 11px; }
@@ -293,7 +261,6 @@
   </style>
 </head>
 <body>
-  <a class="print-action" href="brandon-pastuszek-resume-print.html">Light Print / PDF</a>
   <article class="resume">
     <header>
       <h1>Brandon Joseph Pastuszek</h1>
@@ -475,6 +442,6 @@
       </main>
     </div>
   </article>
-  <p class="print-note">Print-ready: choose “Save as PDF,” Letter paper, and 100% scale.</p>
+  <p class="print-note">Light print edition — choose Print → Save as PDF, Letter paper, and 100% scale.</p>
 </body>
 </html>
