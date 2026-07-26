@@ -206,6 +206,15 @@
       border-radius: 50%;
       background: var(--accent);
     }
+    .product-groups { margin-left: 59px; }
+    .product-group + .product-group { margin-top: 16px; }
+    .product-group h4 {
+      margin: 0 0 4px;
+      color: var(--accent);
+      font-size: .86rem;
+      line-height: 1.3;
+    }
+    .product-group .achievements { margin-left: 0; }
     .summary {
       margin-bottom: 32px;
       padding: 17px 20px;
@@ -271,6 +280,10 @@
       .company-mark { width: 36px; height: 36px; border-radius: 8px; }
       .company-meta, .role, .achievements li { font-size: 8.15pt; }
       .roles, .achievements { margin-left: 46px; }
+      .product-groups { margin-left: 46px; }
+      .product-group + .product-group { margin-top: 9px; }
+      .product-group h4 { margin-bottom: 2px; font-size: 7.9pt; }
+      .product-group .achievements { margin-left: 0; }
       .roles { margin-bottom: 7px; }
       .achievements li { margin-top: 4px; padding-left: 11px; }
       .achievements li::before { width: 4px; height: 4px; }
@@ -401,21 +414,49 @@
               <div class="role"><strong>Lead Software Engineer</strong><time>Jun 2022–May 2026</time></div>
               <div class="role"><strong>Senior Software Engineer</strong><time>May 2018–Jun 2022</time></div>
             </div>
-            <ul class="achievements">
-              <li>Integrated our Cast-facing Guest Service booking flow directly with Hong Kong Disneyland's Point of Sale system. Cast could pick up the handheld device and directly charge what they selected in our Lightning Lane booking application. This led to more sales ocurring at a faster rate at the Park and Resorts. Worked web, backend, and hardware device integration using Web Serial API.</li>
-              <li>Ported the main portion of our domestic Cast-facing Guest Service Suite over to Hong Kong Disneyland. This allows the team to quickly access, triage, and update Guest info and entitlements all in one UI, reducing time required to assist a Guest and thus helping more Guests in a given timeframe. Also refactored to use latest Angular, TypeScript, and Kotlin trends. Regularly worked with the team in Hong Kong to ensure data setup was correct and support all testing scenarios. Served as data, testing and systems integration expert. Worked web and backend.</li>
-              <li>Developed ability to limit Guests from using Direct-to-Room functionality. This prevented fraud from some Guests using Vacation Club points for other Guests. When limited, the system would notify the Guest they should check-in at the front desk. Worked web and backend.</li>
-              <li>Developed Annual Passholder Gift Card Promotion Fulfillment. As a special offer, purchasing or renewing an annual pass would also give the Guest a certain gift card amount. This encouraged more annual pass renewals and additional spending at Parks, dining, merchandise locations, and Resorts. Worked web and backend.</li>
-              <li>Developed functionality to have Lightning Lane entitlements included with a ticket purchase be configurable. This allowed us to have special offers that varied the number of Lightning Lanes you were allowed to hold, allowing us to drive additional ticket sales. Worked web and backend.</li>
-              <li>Directed migration planning from Braze to Adobe Journey Optimizer through API evaluation, prototyping, and implementation guidance. The migration allowed us to switch from purely sending push notifications and tracking click rate to also adding them to an  in-app notification center and tracking a Guest's journey after tapping the notification. Served as architecture and integration.</li>
-              <li>Migrated Guest-facing Virtual Queue functionality from native Swift and Kotlin implementations to Flutter. Served as liason between Disney and Google. Also, ported initial version of Virtual Queue to web using Flutter. This allowed us to have a "write once, run everywhere" codebase. Worked mobile (native and Flutter), web, backend.</li>
-              <li>Created a suite of production monitoring Splunk alerts with instructions for live-site team on how to correct. These were also used Enterprise-wide to gauge the health of dependent systems. We always found production issues before the first human report came in. The dev team rarely needed to join production calls because the alerts self-diagnosed and provided dependent teams with instructions. The alerts were also available and running 24/7.</li>
-              <li>Developed Virtual Queue as a day-one developer. Similar to how standby works at a restaurant, this works similar for attractions and other exerpeinces. Integrated into the Walt Disney World and Disneyland Resort apps. Worked mobile, web, backend. The time saved in line per year is measured in millennia (seriously, like thousands upon thousands of years). We saw a notable increase in Food and Beverage sales around areas that used Virtual Queue.</li>
-              <li>Integrated Claude, Cursor, GitHub Copilot into engineering workflows for architecture, debugging, modernization, and delivery acceleration.</li>
-              <li>Throughout the efforts above I was leading teams sized at just myself to 15 people.</li>
-              <li>Regularly presented to executives.</li>
+            <div class="product-groups">
+              <div class="product-group">
+                <h4>Lightning Lane &amp; Guest Service</h4>
+                <ul class="achievements">
+                  <li>Integrated our Cast-facing Guest Service booking flow directly with Hong Kong Disneyland's Point of Sale system. Cast could pick up the handheld device and directly charge what they selected in our Lightning Lane booking application. This led to more sales ocurring at a faster rate at the Park and Resorts. Worked web, backend, and hardware device integration using Web Serial API.</li>
+                  <li>Ported the main portion of our domestic Cast-facing Guest Service Suite over to Hong Kong Disneyland. This allows the team to quickly access, triage, and update Guest info and entitlements all in one UI, reducing time required to assist a Guest and thus helping more Guests in a given timeframe. Also refactored to use latest Angular, TypeScript, and Kotlin trends. Regularly worked with the team in Hong Kong to ensure data setup was correct and support all testing scenarios. Served as data, testing and systems integration expert. Worked web and backend.</li>
+                  <li>Developed functionality to have Lightning Lane entitlements included with a ticket purchase be configurable. This allowed us to have special offers that varied the number of Lightning Lanes you were allowed to hold, allowing us to drive additional ticket sales. Worked web and backend.</li>
+                </ul>
+              </div>
 
-            </ul>
+              <div class="product-group">
+                <h4>Virtual Queue</h4>
+                <ul class="achievements">
+                  <li>Developed Virtual Queue as a day-one developer. Similar to how standby works at a restaurant, this works similar for attractions and other exerpeinces. Integrated into the Walt Disney World and Disneyland Resort apps. Worked mobile, web, backend. The time saved in line per year is measured in millennia (seriously, like thousands upon thousands of years). We saw a notable increase in Food and Beverage sales around areas that used Virtual Queue.</li>
+                  <li>Migrated Guest-facing Virtual Queue functionality from native Swift and Kotlin implementations to Flutter. Served as liason between Disney and Google. Also, ported initial version of Virtual Queue to web using Flutter. This allowed us to have a "write once, run everywhere" codebase. Worked mobile (native and Flutter), web, backend.</li>
+                </ul>
+              </div>
+
+              <div class="product-group">
+                <h4>Resort &amp; Passholder Experiences</h4>
+                <ul class="achievements">
+                  <li>Developed ability to limit Guests from using Direct-to-Room functionality. This prevented fraud from some Guests using Vacation Club points for other Guests. When limited, the system would notify the Guest they should check-in at the front desk. Worked web and backend.</li>
+                  <li>Developed Annual Passholder Gift Card Promotion Fulfillment. As a special offer, purchasing or renewing an annual pass would also give the Guest a certain gift card amount. This encouraged more annual pass renewals and additional spending at Parks, dining, merchandise locations, and Resorts. Worked web and backend.</li>
+                </ul>
+              </div>
+
+              <div class="product-group">
+                <h4>Guest Messaging</h4>
+                <ul class="achievements">
+                  <li>Directed migration planning from Braze to Adobe Journey Optimizer through API evaluation, prototyping, and implementation guidance. The migration allowed us to switch from purely sending push notifications and tracking click rate to also adding them to an in-app notification center and tracking a Guest's journey after tapping the notification. Served as architecture and integration.</li>
+                </ul>
+              </div>
+
+              <div class="product-group">
+                <h4>Platform &amp; Engineering Leadership</h4>
+                <ul class="achievements">
+                  <li>Created a suite of production monitoring Splunk alerts with instructions for live-site team on how to correct. These were also used Enterprise-wide to gauge the health of dependent systems. We always found production issues before the first human report came in. The dev team rarely needed to join production calls because the alerts self-diagnosed and provided dependent teams with instructions. The alerts were also available and running 24/7.</li>
+                  <li>Integrated Claude, Cursor, GitHub Copilot into engineering workflows for architecture, debugging, modernization, and delivery acceleration.</li>
+                  <li>Throughout the efforts above I was leading teams sized at just myself to 15 people.</li>
+                  <li>Regularly presented to executives.</li>
+                </ul>
+              </div>
+            </div>
           </article>
 
           <article class="experience">
