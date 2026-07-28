@@ -1,0 +1,109 @@
+<main class="table" [class.game-over]="gameOver()">
+  <section class="player player-top" [class.active]="activePlayer() === 0 && !gameOver()">
+    <div class="player-content">
+      <div class="identity">
+        <span class="player-dot player-one"></span>
+        <div>
+          <p>North side</p>
+          <h2>Player 1</h2>
+        </div>
+      </div>
+      <div class="score">
+        <span>Total</span>
+        <strong>{{ totals()[0] }}</strong>
+      </div>
+    </div>
+    <div class="round-scores">Final hand <b>{{ scoreFor(0, 0) }}</b></div>
+  </section>
+
+  <section class="arena">
+    <header class="brand">
+      <span class="logo-die">●</span>
+      <h1>Dice Duel</h1>
+      <p>Highest hand after 3 rolls wins</p>
+    </header>
+
+    <div class="turn-card" aria-live="polite">
+      <div class="turn-meta">
+        <span>Player {{ activePlayer() + 1 }}’s turn</span>
+        <span class="roll-count">
+          @for (roll of [1, 2, 3]; track roll) {
+            <i [class.used]="roll <= rolls()"></i>
+          }
+          {{ 3 - rolls() }} rolls left
+        </span>
+      </div>
+      <h3>{{ status() }}</h3>
+    </div>
+
+    <div class="dice-tray" [class.shaking]="rolling()" aria-label="Five dice">
+      @for (die of dice(); track $index) {
+        <button
+          class="die"
+          [class.held]="held()[$index]"
+          [disabled]="rolls() === 0 || rolls() >= 3 || rolling() || gameOver()"
+          (click)="toggleHold($index)"
+          [attr.aria-label]="'Die ' + ($index + 1) + ', value ' + die + (held()[$index] ? ', held' : '')">
+          <span class="hold-label">{{ held()[$index] ? 'HELD' : 'HOLD' }}</span>
+          <span class="pip-grid">
+            @for (position of [0,1,2,3,4,5,6,7,8]; track position) {
+              <i [class.visible]="pipPositions(die).includes(position)"></i>
+            }
+          </span>
+        </button>
+      }
+    </div>
+
+    <div class="current-score" [class.visible]="rolls() > 0">
+      Current hand <strong>{{ currentTotal() }}</strong>
+    </div>
+
+    <div class="actions">
+      @if (!gameOver()) {
+        <button class="roll-button" (click)="roll()" [disabled]="rolling() || rolls() >= 3">
+          <span>{{ rolling() ? 'Rolling…' : rolls() === 0 ? 'Roll dice' : 'Roll again' }}</span>
+          <small>{{ rolls() === 0 ? 'Start your turn' : (held().filter(value => value).length + ' held') }}</small>
+        </button>
+        <button class="bank-button" (click)="bank()" [disabled]="rolls() === 0 || rolling()">
+          {{ rolls() === 3 ? 'Finish turn' : 'Bank score' }}
+        </button>
+      } @else {
+        <div class="winner-backdrop">
+        <div class="winner">
+          <div class="confetti" aria-hidden="true">
+            @for (piece of [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]; track piece) {
+              <i
+                [style.left.%]="piece * 5.5 + 2"
+                [style.background]="'hsl(' + (piece * 39) + 'deg 88% 62%)'"
+                [style.animation-delay.ms]="piece * -35"></i>
+            }
+          </div>
+          <span class="winner-kicker">Game over</span>
+          <div class="trophy">★</div>
+          <h2>{{ status() }}</h2>
+          <p>Final score</p>
+          <strong>{{ totals()[0] }} — {{ totals()[1] }}</strong>
+          <button (click)="restart()">Play again</button>
+        </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="player player-bottom" [class.active]="activePlayer() === 1 && !gameOver()">
+    <div class="player-content">
+      <div class="identity">
+        <span class="player-dot player-two"></span>
+        <div>
+          <p>South side</p>
+          <h2>Player 2</h2>
+        </div>
+      </div>
+      <div class="score">
+        <span>Total</span>
+        <strong>{{ totals()[1] }}</strong>
+      </div>
+    </div>
+    <div class="round-scores">Final hand <b>{{ scoreFor(1, 0) }}</b></div>
+  </section>
+</main>
