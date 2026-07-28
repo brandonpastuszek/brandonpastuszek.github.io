@@ -12,4 +12,6 @@ Edit `TV_SHOW_WATCHLIST.md`:
 
 ## Update report behavior
 
-Edit `tv-shows-this-week.md` to change the research rules, report columns, descriptions, previews, or source preferences.
+Edit `.codex/prompts/tv-shows-this-week.md` to change the research rules, report columns, descriptions, previews, or source preferences.
+
+The weekly automation reads these two files every Sunday at 8:00 AM in `America/New_York`, so saved edits apply to the next run.
