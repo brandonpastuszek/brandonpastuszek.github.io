@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta property="og:image" content="https://brandonpastuszek.github.io/profile_expanded.png">
 
     <title>Brandon Pastuszek</title>
@@ -94,10 +93,6 @@
             font-weight: 800;
         }
 
-        /*
-         * All links belonging to a section are inside the same container.
-         * The gap property creates consistent spacing between every card.
-         */
         .links-container {
             display: flex;
             flex-direction: column;
@@ -108,7 +103,6 @@
             padding: 16px 24px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
             gap: 16px;
             background-color: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -171,10 +165,6 @@
             color: var(--bg-color);
         }
 
-        .external-icon {
-            flex-shrink: 0;
-        }
-
         .share {
             margin-top: 40px;
         }
@@ -193,17 +183,10 @@
 
 <body>
     <main class="container">
-        <img
-            class="profile-img"
-            src="profile.png"
-            alt="Brandon Pastuszek"
-        >
+        <img class="profile-img" src="profile.png" alt="Brandon Pastuszek">
 
         <h1>Brandon Pastuszek</h1>
-
-        <p class="intro">
-            Sr Product Engineer / Lead Software Engineer
-        </p>
+        <p class="intro">Sr Product Engineer / Lead Software Engineer</p>
 
         <div class="email">
             <a href="mailto:brandonpastuszek@gmail.com">
@@ -212,9 +195,7 @@
         </div>
 
         <section class="link-group" aria-labelledby="about-me-heading">
-            <h2 class="section-title" id="about-me-heading">
-                About Me
-            </h2>
+            <h2 class="section-title" id="about-me-heading">About Me</h2>
 
             <div class="links-container">
                 <a
@@ -224,18 +205,9 @@
                     class="link-btn"
                 >
                     <span class="link-text">
-                        <img
-                            src="icon_portfolio.png"
-                            class="link-icon"
-                            alt=""
-                        >
-                        <span>
-                            Portfolio/Sizzle
-                            <small>(Being Updated)</small>
-                        </span>
+                        <img src="icon_portfolio.png" class="link-icon" alt="">
+                        <span>Portfolio/Sizzle <small>(Being Updated)</small></span>
                     </span>
-
-                    <span class="external-icon" aria-hidden="true">↗</span>
                 </a>
 
                 <a
@@ -245,15 +217,9 @@
                     class="link-btn"
                 >
                     <span class="link-text">
-                        <img
-                            src="icon_resume.png"
-                            class="link-icon"
-                            alt=""
-                        >
+                        <img src="icon_resume.png" class="link-icon" alt="">
                         <span>Resume</span>
                     </span>
-
-                    <span class="external-icon" aria-hidden="true">↗</span>
                 </a>
 
                 <a
@@ -263,38 +229,23 @@
                     class="link-btn"
                 >
                     <span class="link-text">
-                        <img
-                            src="icon_linkedin.png"
-                            class="link-icon"
-                            alt=""
-                        >
+                        <img src="icon_linkedin.png" class="link-icon" alt="">
                         <span>LinkedIn</span>
                     </span>
-
-                    <span class="external-icon" aria-hidden="true">↗</span>
                 </a>
 
                 <a href="recognitions.html" class="link-btn">
                     <span class="link-text">
-                        <img
-                            src="icon_recognitions.png"
-                            class="link-icon"
-                            alt=""
-                        >
+                        <img src="icon_recognitions.png" class="link-icon" alt="">
                         <span>Recognitions</span>
                     </span>
-
-                    <span class="external-icon" aria-hidden="true">↗</span>
                 </a>
             </div>
         </section>
 
         <section class="link-group" aria-labelledby="projects-heading">
-            <h2 class="section-title" id="projects-heading">
-                Projects
-            </h2>
+            <h2 class="section-title" id="projects-heading">Projects</h2>
 
-            <!-- Both projects share one container, so gap adds spacing. -->
             <div class="links-container">
                 <a
                     href="projects/dice-duel-angular/standalone/index.html"
@@ -303,11 +254,7 @@
                     class="link-btn project-link"
                 >
                     <span class="project-details">
-                        <img
-                            src="icon_projects_dice.png"
-                            class="link-icon"
-                            alt=""
-                        >
+                        <img src="icon_projects_dice.png" class="link-icon" alt="">
 
                         <span class="project-content">
                             <span>Dice Duel</span>
@@ -316,8 +263,6 @@
                             </span>
                         </span>
                     </span>
-
-                    <span class="external-icon" aria-hidden="true">↗</span>
                 </a>
 
                 <a
@@ -327,11 +272,7 @@
                     onclick="return false;"
                 >
                     <span class="project-details">
-                        <img
-                            src="icon_projects_parkking.png"
-                            class="link-icon"
-                            alt=""
-                        >
+                        <img src="icon_projects_parkking.png" class="link-icon" alt="">
 
                         <span class="project-content">
                             <span>Park King (Under Construction)</span>
@@ -340,19 +281,13 @@
                             </span>
                         </span>
                     </span>
-
-                    <span class="external-icon" aria-hidden="true">↗</span>
                 </a>
             </div>
         </section>
 
         <div class="share">
             <div class="share-title">Share</div>
-
-            <img
-                src="qrcode_landingpage.png"
-                alt="QR code for this page"
-            >
+            <img src="qrcode_landingpage.png" alt="QR code for this page">
         </div>
     </main>
 </body>
