@@ -1,0 +1,1238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Brightline Trip Concierge — Canned POC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#141512">
+    <meta name="description" content="A single-file canned proof of concept for an Orlando-to-Miami Brightline trip concierge.">
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,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">
+    <style>:root {
+  --ink: #141512;
+  --muted: #6d6f68;
+  --line: #dedfd8;
+  --paper: #f7f7f2;
+  --card: #ffffff;
+  --sun: #f8e71c;
+  --sun-soft: #fff8a6;
+  --cream: #eeeee6;
+  --success: #0b6b43;
+  --shadow: 0 18px 50px rgba(29, 31, 24, 0.08);
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; min-height: 100vh; background: var(--paper); }
+button, input, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { color: inherit; }
+a { color: inherit; }
+
+.app-shell { min-height: 100vh; display: flex; flex-direction: column; }
+.topbar {
+  height: 72px; display: flex; align-items: center; gap: 22px; padding: 0 32px;
+  background: var(--ink); color: white; border-bottom: 1px solid #30312d;
+}
+.wordmark { display: flex; align-items: center; gap: 9px; color: white; text-decoration: none; font-size: 24px; font-weight: 800; letter-spacing: -1.2px; }
+.sun-mark { width: 16px; height: 16px; background: var(--sun); border-radius: 50%; box-shadow: 8px 0 0 -5px var(--sun), -8px 0 0 -5px var(--sun), 0 8px 0 -5px var(--sun), 0 -8px 0 -5px var(--sun); }
+.product-name { padding-left: 22px; border-left: 1px solid #464742; color: #d7d8d1; font-size: 14px; }
+.prototype-pill { padding: 6px 10px; border: 1px solid #55564f; border-radius: 999px; color: #bfc0b9; font-size: 11px; text-transform: uppercase; letter-spacing: .11em; }
+.policy-link { margin-left: auto; color: #dedfd9; text-decoration: none; font-size: 13px; }
+.policy-link:hover { color: var(--sun); }
+
+.workspace { flex: 1; display: grid; grid-template-columns: 270px minmax(460px, 1fr) 330px; min-height: calc(100vh - 116px); }
+.route-rail { position: relative; overflow: hidden; padding: 44px 28px 32px; background: var(--sun); border-right: 1px solid #d5c800; }
+.route-rail::after { content: ""; position: absolute; width: 240px; height: 240px; border: 1px solid rgba(20, 21, 18, .12); border-radius: 50%; left: -120px; bottom: -90px; }
+.route-kicker, .eyebrow, .bubble-label { font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.route-rail h1 { margin: 12px 0 14px; font-size: clamp(40px, 4vw, 58px); line-height: .92; letter-spacing: -3.5px; }
+.route-rail h1 span { font-weight: 400; }
+.route-subtitle { margin: 0 0 38px; font-size: 15px; line-height: 1.5; max-width: 210px; }
+.route-map { padding: 23px 20px; border: 1px solid rgba(20,21,18,.22); border-radius: 18px; background: rgba(255,255,255,.32); }
+.route-stop { display: flex; align-items: center; gap: 13px; }
+.route-stop strong { display: block; font-size: 22px; letter-spacing: -.5px; }
+.route-stop small { display: block; margin-top: 3px; font-size: 11px; color: #525348; }
+.station-dot { width: 14px; height: 14px; flex: 0 0 auto; border: 3px solid var(--ink); border-radius: 50%; background: var(--sun); }
+.route-stop-start .station-dot { background: var(--ink); box-shadow: inset 0 0 0 3px var(--sun); }
+.track-line { width: 14px; height: 68px; margin: 4px 0 4px; display: flex; flex-direction: column; align-items: center; justify-content: space-around; }
+.track-line::before { content: ""; position: absolute; width: 2px; height: 72px; background: var(--ink); opacity: .36; }
+.track-line span { width: 4px; height: 4px; border-radius: 50%; background: var(--ink); z-index: 1; }
+.route-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 22px; background: rgba(20,21,18,.2); border: 1px solid rgba(20,21,18,.2); border-radius: 12px; overflow: hidden; }
+.route-facts div { padding: 14px; background: var(--sun); }
+.route-facts strong, .route-facts span { display: block; }
+.route-facts strong { font-size: 14px; }
+.route-facts span { margin-top: 3px; font-size: 10px; color: #555648; }
+.microcopy { font-size: 10px; line-height: 1.5; color: #595a4d; }
+.human-handoff { display: flex; align-items: center; gap: 10px; margin-top: 30px; padding-top: 18px; border-top: 1px solid rgba(20,21,18,.24); }
+.human-avatar { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--ink); color: var(--sun); font-size: 12px; font-weight: 800; }
+.human-handoff strong, .human-handoff span { display: block; }
+.human-handoff strong { font-size: 12px; }
+.human-handoff div span { margin-top: 3px; max-width: 150px; color: #5f604f; font-size: 9px; line-height: 1.3; }
+
+.chat-panel { min-width: 0; background: var(--paper); display: flex; flex-direction: column; }
+.chat-heading { display: flex; justify-content: space-between; align-items: flex-end; padding: 28px 38px 20px; border-bottom: 1px solid var(--line); background: rgba(247,247,242,.92); }
+.chat-heading h2, .brief-header h2 { margin: 5px 0 0; font-size: 25px; line-height: 1; letter-spacing: -1.2px; }
+.eyebrow { color: #83857c; }
+.heading-actions { display: flex; align-items: center; gap: 14px; }
+.demo-button { min-height: 34px; padding: 0 13px; border: 1px solid var(--ink); border-radius: 999px; background: var(--sun); color: var(--ink); font-size: 10px; font-weight: 800; cursor: pointer; }
+.demo-button:hover, .demo-button:focus-visible { background: var(--sun-soft); outline: 2px solid var(--ink); outline-offset: 2px; }
+.static-demo-chip { padding: 7px 10px; border: 1px solid #c9cbc2; border-radius: 999px; color: var(--muted); font-size: 8px; font-weight: 900; letter-spacing: .1em; }
+.text-button, .back-button { border: 0; background: transparent; font-size: 12px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.progress-row { display: grid; grid-template-columns: 150px 1fr 36px; gap: 13px; align-items: center; padding: 12px 38px; border-bottom: 1px solid var(--line); background: white; }
+.progress-copy { display: flex; align-items: baseline; gap: 8px; white-space: nowrap; }
+.progress-copy span, .progress-number { font-size: 10px; color: var(--muted); }
+.progress-copy strong { font-size: 11px; }
+.progress-track { height: 4px; border-radius: 99px; background: #e7e8e1; overflow: hidden; }
+.progress-track span { display: block; height: 100%; border-radius: inherit; background: var(--ink); transition: width .25s ease; }
+.progress-number { text-align: right; }
+.conversation { flex: 1; max-height: calc(100vh - 165px); overflow-y: auto; overscroll-behavior: contain; padding: 34px clamp(24px, 5vw, 70px) 80px; scrollbar-width: thin; }
+.message { display: flex; max-width: 650px; margin: 0 auto 12px; }
+.assistant-message { align-items: flex-start; gap: 11px; }
+.assistant-avatar { display: grid; place-items: center; flex: 0 0 auto; width: 30px; height: 30px; border-radius: 50%; background: var(--ink); color: var(--sun); font-size: 11px; font-weight: 900; }
+.bubble { max-width: 520px; padding: 14px 17px; border: 1px solid var(--line); border-radius: 4px 16px 16px 16px; background: white; box-shadow: 0 4px 16px rgba(20,21,18,.03); }
+.bubble-label { display: block; margin-bottom: 6px; color: #85877e; font-size: 8px; }
+.bubble p { margin: 0; font-size: 14px; line-height: 1.55; }
+.intro-message { margin-bottom: 22px; }
+.compact-message { opacity: .65; }
+.compact-message .bubble { padding: 10px 14px; }
+.compact-message .bubble p { font-size: 12px; }
+.user-message { justify-content: flex-end; }
+.user-bubble { border-radius: 16px 4px 16px 16px; border-color: #d6ca1a; background: var(--sun); cursor: pointer; text-align: left; }
+.user-bubble span { font-size: 13px; font-weight: 700; }
+.user-bubble small { margin-left: 10px; color: #646118; font-size: 9px; text-decoration: underline; text-underline-offset: 2px; }
+.current-message { margin-top: 24px; }
+.current-message .bubble { border-color: #bfc0b8; box-shadow: var(--shadow); }
+
+.answer-card { position: relative; max-width: 650px; margin: 18px auto 0; padding: 22px; border: 1px solid #d9dad3; border-radius: 18px; background: white; box-shadow: var(--shadow); }
+.choice-grid { display: grid; gap: 10px; }
+.two-up { grid-template-columns: 1fr 1fr; }
+.three-up { grid-template-columns: repeat(3, 1fr); }
+.choice-card { min-height: 108px; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; padding: 17px; border: 1px solid var(--line); border-radius: 12px; background: #fafaf7; cursor: pointer; text-align: left; transition: .18s ease; }
+.choice-card:hover, .choice-card:focus-visible, .fare-card:hover, .fare-card:focus-visible { border-color: var(--ink); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(20,21,18,.08); outline: none; }
+.choice-icon { margin-bottom: auto; font-size: 25px; }
+.choice-card strong { font-size: 14px; }
+.choice-card small { margin-top: 5px; color: var(--muted); font-size: 10px; line-height: 1.35; }
+.three-up .choice-card { min-height: 120px; }
+.field-label, .form-grid label span, .exact-time span { display: block; margin-bottom: 8px; font-size: 11px; font-weight: 800; }
+.field-label small, .form-grid label span small, .exact-time span small { color: var(--muted); font-weight: 400; }
+.date-input, .form-grid input, textarea, .exact-time input { width: 100%; border: 1px solid #c9cbc2; border-radius: 10px; background: #fbfbf8; color: var(--ink); outline: none; }
+.date-input { padding: 16px; font-size: 18px; font-weight: 700; }
+.form-grid input, textarea, .exact-time input { padding: 12px 13px; font-size: 13px; }
+textarea { resize: vertical; min-height: 95px; }
+.date-input:focus, .form-grid input:focus, textarea:focus, .exact-time input:focus { border-color: var(--ink); box-shadow: 0 0 0 3px rgba(248,231,28,.48); }
+.field-help, .privacy-note { color: var(--muted); font-size: 10px; line-height: 1.45; }
+.primary-button, .secondary-button { display: inline-flex; justify-content: center; align-items: center; gap: 26px; min-height: 44px; margin-top: 12px; padding: 0 18px; border-radius: 999px; font-size: 12px; font-weight: 800; cursor: pointer; }
+.primary-button { border: 1px solid var(--ink); background: var(--ink); color: white; }
+.primary-button span { color: var(--sun); font-size: 16px; }
+.primary-button:hover { background: #30312c; }
+.primary-button:disabled { border-color: #c8c9c2; background: #d8d9d2; color: #898a83; cursor: not-allowed; }
+.secondary-button { border: 1px solid #c6c8bf; background: transparent; }
+.back-button { display: flex; gap: 8px; margin-top: 18px; color: var(--muted); }
+.counter-list { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.counter-row { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding: 15px 17px; }
+.counter-row + .counter-row { border-top: 1px solid var(--line); }
+.counter-row strong, .counter-row small { display: block; }
+.counter-row strong { font-size: 13px; }
+.counter-row small { max-width: 350px; margin-top: 4px; color: var(--muted); font-size: 9px; line-height: 1.35; }
+.counter-control { display: flex; align-items: center; gap: 9px; flex: 0 0 auto; }
+.counter-control button { display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 1px solid #caccC3; border-radius: 50%; background: white; cursor: pointer; font-size: 18px; }
+.counter-control button:disabled { opacity: .35; cursor: not-allowed; }
+.counter-control span { min-width: 18px; text-align: center; font-size: 13px; font-weight: 800; }
+.fare-list { display: grid; gap: 9px; }
+.fare-card { position: relative; width: 100%; min-height: 72px; display: flex; justify-content: space-between; align-items: center; padding: 15px 17px; border: 1px solid var(--line); border-radius: 12px; background: #fafaf7; text-align: left; cursor: pointer; transition: .18s ease; }
+.fare-card strong, .fare-card small { display: block; }
+.fare-card strong { font-size: 14px; }
+.fare-card small { margin-top: 4px; color: var(--muted); font-size: 10px; }
+.premium-card { margin-top: 5px; border-color: var(--ink); background: var(--ink); color: white; }
+.premium-card small { color: #c9cac3; }
+.recommended-tag { position: absolute; top: -9px; left: 15px; padding: 4px 7px; border-radius: 4px; background: var(--sun); color: var(--ink); font-size: 7px; font-weight: 900; letter-spacing: .1em; }
+.fare-arrow { font-size: 18px; }
+.recommendation-card { border-style: dashed; background: #fffde7; }
+.policy-note, .lounge-detail, .ai-recommendation, .fit-card { display: flex; align-items: flex-start; gap: 10px; }
+.policy-note { margin-top: 12px; padding: 11px 13px; border-radius: 9px; background: #f1f2ec; }
+.policy-note > span { display: grid; place-items: center; width: 18px; height: 18px; flex: 0 0 auto; border-radius: 50%; background: var(--ink); color: white; font-size: 10px; font-weight: 800; }
+.policy-note p, .lounge-detail p { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.5; }
+.lounge-detail { margin-top: 12px; padding: 13px; border-radius: 10px; background: #fffbd4; }
+.lounge-star { color: #8d8200; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+.full-field { grid-column: 1 / -1; }
+.inline-options, .stacked-options, .segmented-control, .time-windows { margin: 16px 0 0; padding: 0; border: 0; }
+.inline-options legend, .stacked-options legend, .segmented-control legend, .time-windows legend { margin-bottom: 9px; font-size: 10px; font-weight: 800; }
+.inline-options { display: flex; flex-wrap: wrap; gap: 14px; }
+.inline-options legend { width: 100%; }
+.inline-options label, .stacked-options label { font-size: 12px; }
+.stacked-options { display: grid; gap: 9px; margin-top: 0; margin-bottom: 18px; }
+.stacked-options label { padding: 11px; border: 1px solid var(--line); border-radius: 9px; }
+.segmented-control { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+.segmented-control legend, .time-windows legend { grid-column: 1 / -1; }
+.segmented-control label { padding: 10px; border: 1px solid var(--line); border-radius: 999px; text-align: center; font-size: 10px; font-weight: 700; cursor: pointer; }
+.segmented-control input, .time-windows input { position: absolute; opacity: 0; pointer-events: none; }
+.segmented-control label.selected, .time-windows label.selected { border-color: var(--ink); background: var(--ink); color: white; }
+.time-windows { display: grid; grid-template-columns: repeat(5, 1fr); gap: 7px; }
+.time-windows label { padding: 11px 5px; border: 1px solid var(--line); border-radius: 9px; text-align: center; cursor: pointer; }
+.time-windows strong, .time-windows small { display: block; }
+.time-windows strong { font-size: 9px; }
+.time-windows small { margin-top: 4px; color: var(--muted); font-size: 7px; }
+.time-windows label.selected small { color: #c7c8c1; }
+.exact-time { display: block; max-width: 230px; margin-top: 14px; }
+
+.review-card { border: 1px solid var(--ink); border-radius: 14px; overflow: hidden; }
+.review-topline { display: flex; justify-content: space-between; padding: 11px 14px; background: var(--ink); color: white; font-size: 8px; font-weight: 800; letter-spacing: .1em; }
+.ready-dot { color: var(--sun); }
+.review-route { display: flex; justify-content: space-between; align-items: center; padding: 22px 20px 14px; font-size: 23px; }
+.review-route > span { display: flex; align-items: center; gap: 7px; color: #85877e; font-size: 13px; }
+.review-route i { width: 45px; height: 1px; background: #c9cac3; }
+.review-grid { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+.review-grid button { padding: 13px 15px; border: 0; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: white; text-align: left; cursor: pointer; }
+.review-grid button:nth-child(even) { border-right: 0; }
+.review-grid small, .review-grid strong, .review-grid span { display: block; }
+.review-grid small { color: var(--muted); font-size: 7px; letter-spacing: .1em; }
+.review-grid strong { margin-top: 5px; font-size: 12px; }
+.review-grid span { margin-top: 3px; color: var(--muted); font-size: 9px; }
+.ai-recommendation { padding: 14px 15px; background: #fffbd2; }
+.ai-recommendation p { margin: 0; font-size: 9px; line-height: 1.45; }
+.ai-recommendation small, .ai-recommendation strong { display: block; }
+.ai-recommendation small { color: #807700; font-size: 7px; font-weight: 900; letter-spacing: .1em; }
+.ai-recommendation strong { margin: 3px 0; font-size: 11px; }
+.handoff-button { width: 100%; }
+.static-preview-note { display: grid; gap: 4px; margin-top: 14px; padding: 13px 15px; border-radius: 10px; background: #f1f2ec; }
+.static-preview-note strong { font-size: 11px; }
+.static-preview-note span { color: var(--muted); font-size: 9px; line-height: 1.45; }
+.success-card { padding: 10px 8px 4px; text-align: center; }
+.success-icon { display: grid; place-items: center; width: 48px; height: 48px; margin: 0 auto 18px; border-radius: 50%; background: var(--success); color: white; font-size: 23px; }
+.success-card h3 { margin: 8px 0; font-size: 25px; letter-spacing: -1px; }
+.success-card p { max-width: 510px; margin: 0 auto; color: var(--muted); font-size: 12px; line-height: 1.55; }
+.success-actions { display: flex; justify-content: center; gap: 9px; margin-top: 18px; }
+
+.brief-panel { padding: 30px 24px; border-left: 1px solid var(--line); background: #eeefe9; }
+.brief-header { display: flex; justify-content: space-between; align-items: flex-start; }
+.live-indicator { display: flex; align-items: center; gap: 5px; color: var(--muted); font-size: 8px; }
+.live-indicator i { width: 6px; height: 6px; border-radius: 50%; background: var(--success); }
+.mini-route-card { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 9px; margin-top: 22px; padding: 16px; border-radius: 12px; background: var(--ink); color: white; }
+.mini-route-card div:last-child { text-align: right; }
+.mini-route-card small, .mini-route-card strong, .mini-route-card span { display: block; }
+.mini-route-card small { color: #93958d; font-size: 7px; letter-spacing: .1em; }
+.mini-route-card strong { margin-top: 5px; font-size: 13px; }
+.mini-route-card div span { margin-top: 3px; color: #b8bab1; font-size: 8px; }
+.mini-route-arrow { color: var(--sun); }
+.brief-list { margin: 18px 0; border-top: 1px solid #d2d4cb; }
+.brief-list div { display: flex; justify-content: space-between; gap: 15px; padding: 11px 2px; border-bottom: 1px solid #d2d4cb; }
+.brief-list dt { color: var(--muted); font-size: 10px; }
+.brief-list dd { margin: 0; max-width: 170px; text-align: right; font-size: 10px; font-weight: 800; }
+.fit-card { padding: 14px; border-radius: 10px; background: white; border: 1px solid #d9dad3; }
+.fit-card > span { color: #958a00; }
+.fit-card small, .fit-card strong { display: block; }
+.fit-card small { color: var(--muted); font-size: 7px; letter-spacing: .1em; }
+.fit-card strong { margin-top: 4px; font-size: 14px; }
+.fit-card p { margin: 4px 0 0; color: var(--muted); font-size: 8px; line-height: 1.4; }
+.brief-footer { display: flex; align-items: center; gap: 9px; margin-top: 22px; padding-top: 17px; border-top: 1px solid #d2d4cb; }
+.shield-icon { display: grid; place-items: center; width: 24px; height: 24px; flex: 0 0 auto; border-radius: 50%; background: #dfe0d7; color: var(--success); font-size: 11px; }
+.brief-footer p { margin: 0; color: var(--muted); font-size: 8px; line-height: 1.45; }
+.brief-footer strong { color: var(--ink); }
+
+.site-footer { min-height: 44px; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 10px 32px; background: var(--ink); color: #aeb0a8; font-size: 9px; }
+.site-footer nav { display: flex; gap: 18px; }
+.site-footer a { text-underline-offset: 3px; }
+
+@media (max-width: 1100px) {
+  .workspace { grid-template-columns: 230px minmax(450px, 1fr); }
+  .brief-panel { display: none; }
+  .route-rail { padding-left: 23px; padding-right: 23px; }
+}
+
+@media (max-width: 760px) {
+  .topbar { height: 60px; padding: 0 18px; gap: 12px; }
+  .wordmark { font-size: 20px; }
+  .product-name, .policy-link { display: none; }
+  .prototype-pill { margin-left: auto; font-size: 8px; }
+  .workspace { display: flex; flex-direction: column; min-height: auto; }
+  .route-rail { padding: 22px 20px; border-right: 0; border-bottom: 1px solid #d5c800; }
+  .route-kicker, .route-subtitle, .route-map, .route-facts, .microcopy, .human-handoff { display: none; }
+  .route-rail h1 { margin: 0; font-size: 32px; letter-spacing: -2px; }
+  .route-rail h1 br { display: none; }
+  .route-rail h1 span::before { content: " "; }
+  .chat-heading { padding: 22px 20px 16px; }
+  .chat-heading h2 { font-size: 22px; }
+  .heading-actions { gap: 9px; }
+  .progress-row { grid-template-columns: 130px 1fr 30px; padding: 11px 20px; }
+  .conversation { max-height: none; overflow: visible; padding: 25px 16px 60px; }
+  .answer-card { padding: 16px; border-radius: 14px; }
+  .three-up { grid-template-columns: 1fr; }
+  .three-up .choice-card { min-height: 78px; }
+  .time-windows { grid-template-columns: repeat(2, 1fr); }
+  .time-windows label:last-child { grid-column: 1 / -1; }
+  .site-footer { flex-direction: column; align-items: flex-start; padding: 16px 20px; }
+}
+
+@media (max-width: 480px) {
+  .two-up { grid-template-columns: 1fr; }
+  .chat-heading { align-items: flex-start; gap: 14px; }
+  .heading-actions { flex-direction: column; align-items: flex-end; }
+  .demo-button { min-height: 30px; padding: 0 10px; font-size: 9px; }
+  .choice-card { min-height: 92px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .full-field { grid-column: auto; }
+  .segmented-control { grid-template-columns: 1fr; }
+  .review-grid { grid-template-columns: 1fr; }
+  .review-grid button { border-right: 0; }
+  .success-actions { flex-direction: column; }
+  .success-actions button { width: 100%; }
+  .progress-copy span { display: none; }
+  .site-footer nav { flex-wrap: wrap; gap: 10px 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+}
+</style>
+  </head>
+  <body>
+    <div id="brightline-demo-root">
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="wordmark" href="#demo-summary" aria-label="Brightline Concierge demo">
+        <span class="sun-mark" aria-hidden="true"></span>
+        <span>brightline</span>
+      </a>
+      <span class="product-name">Trip concierge</span>
+      <span class="prototype-pill">POC · canned demo</span>
+      <a class="policy-link" href="https://www.gobrightline.com/know-before-you-go" target="_blank" rel="noreferrer">
+        Travel guidance <span aria-hidden="true">↗</span>
+      </a>
+    </header>
+
+    <main class="workspace" id="main">
+      <aside class="route-rail" aria-label="Route overview">
+        <div class="route-kicker">YOUR FLORIDA RIDE</div>
+        <h1>Orlando<br /><span>to Miami.</span></h1>
+        <p class="route-subtitle">We’ll get your plans on track. A person handles the rest.</p>
+
+        <div class="route-map" aria-label="Orlando to Miami route">
+          <div class="route-stop route-stop-start">
+            <span class="station-dot" aria-hidden="true"></span>
+            <div><strong>ORL</strong><small>MCO Terminal C</small></div>
+          </div>
+          <div class="track-line" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+          <div class="route-stop">
+            <span class="station-dot" aria-hidden="true"></span>
+            <div><strong>MIA</strong><small>MiamiCentral · Downtown</small></div>
+          </div>
+        </div>
+
+        <div class="route-facts">
+          <div><strong>≈ 3h 30m</strong><span>typical ride</span></div>
+          <div><strong>Hourly</strong><span>typical service*</span></div>
+        </div>
+        <p class="microcopy">*Sample planning information only. Live trains and fares must be confirmed.</p>
+
+        <div class="human-handoff">
+          <span class="human-avatar" aria-hidden="true">H</span>
+          <div><strong>Human handoff</strong><span>No pressure, no platform drama—just a clear plan.</span></div>
+        </div>
+      </aside>
+
+      <section class="chat-panel" aria-label="Trip planning demo">
+        <div class="chat-heading">
+          <div><span class="eyebrow">AI TRIP ASSISTANT</span><h2>That’s the ticket.</h2></div>
+          <span class="static-demo-chip">CANNED SCENARIO</span>
+        </div>
+
+        <div class="progress-row" aria-label="Demo complete">
+          <div class="progress-copy"><span>Step 12 of 12</span><strong>Review</strong></div>
+          <div class="progress-track" aria-hidden="true"><span style="width:100%"></span></div>
+          <span class="progress-number">100%</span>
+        </div>
+
+        <div class="conversation">
+          <div class="message assistant-message intro-message">
+            <span class="assistant-avatar" aria-hidden="true">B</span>
+            <div class="bubble">
+              <span class="bubble-label">SUNNY · YOUR AI TRIP CONCIERGE</span>
+              <p>All aboard! Here’s a filled example of the Orlando-to-Miami planning experience. Nothing is booked or sent—this train of thought is purely a demo.</p>
+            </div>
+          </div>
+
+          <div class="message assistant-message compact-message">
+            <span class="assistant-avatar" aria-hidden="true">B</span>
+            <div class="bubble"><p>When would you like to roll south?</p></div>
+          </div>
+          <div class="message user-message">
+            <span class="bubble user-bubble"><span>Saturday morning · depart around 9:20 AM</span></span>
+          </div>
+
+          <div class="message assistant-message compact-message">
+            <span class="assistant-avatar" aria-hidden="true">B</span>
+            <div class="bubble"><p>Which onboard experience keeps you on the right track?</p></div>
+          </div>
+          <div class="message user-message">
+            <span class="bubble user-bubble"><span>PREMIUM · lounge access requested</span></span>
+          </div>
+
+          <div class="message assistant-message current-message">
+            <span class="assistant-avatar" aria-hidden="true">B</span>
+            <div class="bubble">
+              <span class="bubble-label">SUNNY · HAPPY TO HELP</span>
+              <p>Right on track! Here’s the sample brief a person could use to confirm the real train, fare, and availability.</p>
+            </div>
+          </div>
+
+          <section class="answer-card" id="demo-summary" aria-label="Filled demo trip brief">
+            <div class="review-card">
+              <div class="review-topline"><span>DEMO · HUMAN-READY TRIP BRIEF</span><span class="ready-dot">Ready to copy</span></div>
+              <div class="review-route"><strong>ORL</strong><span><i></i>→<i></i></span><strong>MIA</strong></div>
+              <div class="review-grid">
+                <button type="button" disabled><small>OUTBOUND</small><strong>Saturday morning</strong><span>Depart around 9:20 AM</span></button>
+                <button type="button" disabled><small>RETURN</small><strong>Tuesday evening</strong><span>Arrive in Orlando by 8 PM</span></button>
+                <button type="button" disabled><small>TRAVELERS</small><strong>2 adults</strong><span>Seats together requested</span></button>
+                <button type="button" disabled><small>CABIN</small><strong>PREMIUM</strong><span>First standard bag included</span></button>
+                <button type="button" disabled><small>CHECKED BAGS</small><strong>1 standard</strong><span>Drop at Guest Services</span></button>
+                <button type="button" disabled><small>LOUNGE</small><strong>Must have</strong><span>PREMIUM access</span></button>
+              </div>
+              <div class="ai-recommendation">
+                <span>✦</span>
+                <p><small>SUNNY’S CONCIERGE NOTE</small><strong>PREMIUM is pulling ahead.</strong>It matches the lounge preference, larger seats, complimentary bites and sips, and the first standard checked bag.</p>
+              </div>
+            </div>
+            <div class="static-preview-note">
+              <strong>Canned proof of concept.</strong>
+              <span>All styling and sample trip data are embedded here. Nothing connects to booking, inventory, payment, or a live AI service.</span>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <aside class="brief-panel" aria-label="Sample trip brief">
+        <div class="brief-header">
+          <div><span class="eyebrow">SAMPLE TRIP BRIEF</span><h2>Your ride</h2></div>
+          <span class="live-indicator"><i></i> Demo</span>
+        </div>
+        <div class="mini-route-card">
+          <div><small>FROM</small><strong>Orlando</strong><span>MCO · Terminal C</span></div>
+          <span class="mini-route-arrow">→</span>
+          <div><small>TO</small><strong>Miami</strong><span>MiamiCentral</span></div>
+        </div>
+        <dl class="brief-list">
+          <div><dt>Trip</dt><dd>Round trip</dd></div>
+          <div><dt>Outbound</dt><dd>Saturday morning</dd></div>
+          <div><dt>Return</dt><dd>Tuesday evening</dd></div>
+          <div><dt>Travelers</dt><dd>2 adults</dd></div>
+          <div><dt>Cabin</dt><dd>PREMIUM</dd></div>
+          <div><dt>Checked bags</dt><dd>1 standard</dd></div>
+          <div><dt>Lounge</dt><dd>Must have</dd></div>
+        </dl>
+        <div class="fit-card">
+          <span>✦</span>
+          <div><small>CURRENT BEST FIT</small><strong>PREMIUM</strong><p>Lounge access, extra room, priority boarding, and one standard checked bag.</p></div>
+        </div>
+        <div class="brief-footer">
+          <span class="shield-icon">✓</span>
+          <p><strong>No checkout or submission.</strong> A person confirms everything before booking.</p>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="site-footer">
+      <span>Independent canned POC · Brightline facts checked August 2026 · nothing booked.</span>
+      <nav aria-label="Source links">
+        <a href="https://www.gobrightline.com/train-tickets" target="_blank" rel="noreferrer">Fare options</a>
+        <a href="https://www.gobrightline.com/know-before-you-go/baggage" target="_blank" rel="noreferrer">Baggage policy</a>
+        <a href="https://www.gobrightline.com/premium" target="_blank" rel="noreferrer">PREMIUM details</a>
+      </nav>
+    </footer>
+  </div>
+</div>
+    <script>(function () {
+  'use strict';
+
+  var root = document.querySelector('#brightline-demo-root');
+  if (!root) return;
+
+  var periods = [
+    ['Morning', '5–11 AM'],
+    ['Midday', '11 AM–3 PM'],
+    ['Afternoon', '3–7 PM'],
+    ['Evening', 'After 7 PM'],
+    ['Any time', 'Most flexible'],
+  ];
+
+  var state = freshState();
+
+  root.querySelector('.prototype-pill').textContent = 'POC · canned demo';
+  root.querySelector('.site-footer > span').textContent =
+    'Independent canned POC · Brightline facts checked August 2026 · no affiliation, live inventory, payment, or booking.';
+
+  var chatPanel = root.querySelector('.chat-panel');
+  chatPanel.innerHTML = `
+    <div class="chat-heading">
+      <div><span class="eyebrow">AI TRIP ASSISTANT</span><h2>Let’s get rolling.</h2></div>
+      <div class="heading-actions">
+        <button class="demo-button" type="button" data-action="load-demo">Run canned scenario</button>
+        <button class="text-button" type="button" data-action="start-over">Start over</button>
+      </div>
+    </div>
+    <div class="progress-row" aria-label="Planning progress">
+      <div class="progress-copy"><span id="step-count"></span><strong id="step-label"></strong></div>
+      <div class="progress-track" aria-hidden="true"><span id="progress-bar"></span></div>
+      <span class="progress-number" id="progress-number"></span>
+    </div>
+    <div class="conversation" id="conversation" aria-live="polite">
+      <div class="message assistant-message intro-message">
+        <span class="assistant-avatar" aria-hidden="true">B</span>
+        <div class="bubble">
+          <span class="bubble-label">SUNNY · YOUR AI TRIP CONCIERGE</span>
+          <p>Hi there—I’m Sunny, your upbeat canned-demo conductor! I’ll walk through the Orlando-to-Miami questions a real concierge would ask. The facts are Brightline-sourced, but there is no live AI, inventory, or booking connection.</p>
+        </div>
+      </div>
+      <div id="history"></div>
+      <div class="message assistant-message current-message">
+        <span class="assistant-avatar" aria-hidden="true">B</span>
+        <div class="bubble"><span class="bubble-label">SUNNY · HAPPY TO HELP</span><p id="current-question"></p></div>
+      </div>
+      <section class="answer-card" id="answer-card"></section>
+    </div>`;
+
+  var briefPanel = root.querySelector('.brief-panel');
+  briefPanel.innerHTML = `
+    <div class="brief-header">
+      <div><span class="eyebrow">LIVE TRIP BRIEF</span><h2>Your ride</h2></div>
+      <span class="live-indicator"><i></i> Local</span>
+    </div>
+    <div class="mini-route-card">
+      <div><small>FROM</small><strong>Orlando</strong><span>MCO · Terminal C</span></div>
+      <span class="mini-route-arrow">→</span>
+      <div><small>TO</small><strong>Miami</strong><span>MiamiCentral</span></div>
+    </div>
+    <dl class="brief-list" id="brief-list"></dl>
+    <div id="fit-card-slot"></div>
+    <div class="brief-footer">
+      <span class="shield-icon">✓</span>
+      <p><strong>No checkout or submission.</strong> Copy the finished brief for a person to confirm before booking.</p>
+    </div>`;
+
+  function freshState() {
+    return {
+      plan: {
+        tripType: '',
+        outboundDate: '',
+        returnDate: '',
+        adults: 1,
+        children: 0,
+        outboundTiming: { mode: 'Depart around', period: '', exactTime: '' },
+        returnTiming: { mode: 'Depart around', period: '', exactTime: '' },
+        cabin: '',
+        standardBags: 0,
+        largeBags: 0,
+        lounge: '',
+        name: '',
+        email: '',
+        phone: '',
+        contactMethod: 'Email',
+        assistance: '',
+        notes: '',
+      },
+      currentIndex: 0,
+      submitted: false,
+      copied: false,
+    };
+  }
+
+  function getSteps() {
+    var result = [
+      { id: 'tripType', label: 'Trip' },
+      { id: 'outboundDate', label: 'Date' },
+    ];
+    if (state.plan.tripType === 'Round trip') result.push({ id: 'returnDate', label: 'Return' });
+    result.push(
+      { id: 'travelers', label: 'Travelers' },
+      { id: 'outboundTiming', label: 'Departure' },
+    );
+    if (state.plan.tripType === 'Round trip') result.push({ id: 'returnTiming', label: 'Return time' });
+    result.push(
+      { id: 'cabin', label: 'Cabin' },
+      { id: 'bags', label: 'Bags' },
+      { id: 'lounge', label: 'Lounge' },
+      { id: 'contact', label: 'Contact' },
+      { id: 'notes', label: 'Final details' },
+      { id: 'review', label: 'Review' },
+    );
+    return result;
+  }
+
+  function getCurrentStep() {
+    var availableSteps = getSteps();
+    state.currentIndex = Math.min(Math.max(state.currentIndex, 0), availableSteps.length - 1);
+    return availableSteps[state.currentIndex];
+  }
+
+  function questionFor(id) {
+    return {
+      tripType: 'All aboard! Are we keeping it one way, or making this a round trip?',
+      outboundDate: 'Great choice—what day would you like to roll from Orlando to Miami?',
+      returnDate: 'Let’s keep the return on track. What day should we plan your ride back to Orlando?',
+      travelers: 'The more the merrier! How many passengers are joining this train of thought?',
+      outboundTiming: 'Time to get specific—pun fully intended. Is departure time or arrival time more important?',
+      returnTiming: 'Let’s keep the return from going off the rails. What timing works from Miami to Orlando?',
+      cabin: 'You’re making great tracks! Which onboard experience sounds right?',
+      bags: 'Let’s unpack the baggage question. Will anyone be checking bags?',
+      lounge: 'Next stop: relaxation. How important is access to the PREMIUM Lounge?',
+      contact: 'We’re in the home stretch! Who should a travel specialist contact?',
+      notes: 'Final stop for details: anything about accessibility, seating, celebrations, or connections?',
+      review: 'You made it—right on track! Give the trip brief one last look before copying it for a person.',
+    }[id];
+  }
+
+  function escapeHtml(value) {
+    return String(value == null ? '' : value).replace(/[&<>"']/g, function (character) {
+      return {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;',
+      }[character];
+    });
+  }
+
+  function formatDate(value) {
+    if (!value) return 'Not selected';
+    return new Intl.DateTimeFormat('en-US', {
+      weekday: 'short',
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+      timeZone: 'UTC',
+    }).format(new Date(value + 'T12:00:00Z'));
+  }
+
+  function formatTime(value) {
+    if (!value) return '';
+    var parts = value.split(':');
+    var hour = Number(parts[0]);
+    return ((hour + 11) % 12 + 1) + ':' + parts[1] + ' ' + (hour >= 12 ? 'PM' : 'AM');
+  }
+
+  function timingAnswer(timing) {
+    if (timing.mode === 'Flexible') return 'Flexible on time';
+    var detail = timing.exactTime ? formatTime(timing.exactTime) : timing.period;
+    return timing.mode + (detail ? ' · ' + detail : '');
+  }
+
+  function totalGuests() {
+    return state.plan.adults + state.plan.children;
+  }
+
+  function activeTiming() {
+    return getCurrentStep().id === 'returnTiming'
+      ? state.plan.returnTiming
+      : state.plan.outboundTiming;
+  }
+
+  function recommendedCabin() {
+    var plan = state.plan;
+    if (plan.cabin && plan.cabin !== 'Recommend for me') return plan.cabin;
+    if (plan.lounge === 'Must have' || plan.standardBags > 0 || plan.largeBags > 0) return 'PREMIUM';
+    return 'SMART';
+  }
+
+  function recommendationReason() {
+    var cabin = recommendedCabin();
+    if (cabin === 'PREMIUM') {
+      return 'It best matches lounge access, a complimentary first standard checked bag, larger seats, and priority boarding in Orlando and Miami.';
+    }
+    if (cabin === 'SMART Saver') {
+      return 'It keeps the budget on track when the lowest available fare matters most and the trip is unlikely to change.';
+    }
+    return 'It is a well-rounded route with seat selection and more flexibility if plans switch tracks.';
+  }
+
+  function answerFor(id) {
+    var plan = state.plan;
+    if (id === 'tripType') return plan.tripType;
+    if (id === 'outboundDate') return formatDate(plan.outboundDate);
+    if (id === 'returnDate') return formatDate(plan.returnDate);
+    if (id === 'travelers') {
+      return (
+        plan.adults +
+        ' adult' +
+        (plan.adults === 1 ? '' : 's') +
+        (plan.children
+          ? ', ' + plan.children + ' child' + (plan.children === 1 ? '' : 'ren')
+          : '')
+      );
+    }
+    if (id === 'outboundTiming') return timingAnswer(plan.outboundTiming);
+    if (id === 'returnTiming') return timingAnswer(plan.returnTiming);
+    if (id === 'cabin') return plan.cabin;
+    if (id === 'bags') {
+      return plan.standardBags + plan.largeBags
+        ? plan.standardBags + ' standard, ' + plan.largeBags + ' large / special'
+        : 'No checked bags';
+    }
+    if (id === 'lounge') return plan.lounge;
+    if (id === 'contact') return plan.name + ' · ' + plan.contactMethod.toLowerCase() + ' preferred';
+    if (id === 'notes') return plan.assistance + (plan.notes ? ' · ' + plan.notes : '');
+    return 'Ready for review';
+  }
+
+  function isCurrentValid() {
+    var id = getCurrentStep().id;
+    var plan = state.plan;
+    if (id === 'tripType') return Boolean(plan.tripType);
+    if (id === 'outboundDate') return Boolean(plan.outboundDate);
+    if (id === 'returnDate') return Boolean(plan.returnDate && plan.returnDate >= plan.outboundDate);
+    if (id === 'travelers') return totalGuests() > 0 && totalGuests() <= 8;
+    if (id === 'outboundTiming' || id === 'returnTiming') {
+      var timing = activeTiming();
+      return timing.mode === 'Flexible' || Boolean(timing.period || timing.exactTime);
+    }
+    if (id === 'cabin') return Boolean(plan.cabin);
+    if (id === 'bags') return true;
+    if (id === 'lounge') return Boolean(plan.lounge);
+    if (id === 'contact') {
+      return (
+        plan.name.trim().length > 1 &&
+        /^\S+@\S+\.\S+$/.test(plan.email) &&
+        (plan.contactMethod !== 'Phone' || plan.phone.trim().length >= 7)
+      );
+    }
+    if (id === 'notes') return Boolean(plan.assistance);
+    return true;
+  }
+
+  function setPlanValue(path, value) {
+    var pieces = path.split('.');
+    var target = state.plan;
+    for (var index = 0; index < pieces.length - 1; index += 1) target = target[pieces[index]];
+    target[pieces[pieces.length - 1]] = value;
+  }
+
+  function choiceCard(field, value, icon, title, detail) {
+    return (
+      '<button class="choice-card" type="button" data-action="choose" data-field="' +
+      field +
+      '" data-value="' +
+      escapeHtml(value) +
+      '">' +
+      (icon ? '<span class="choice-icon">' + icon + '</span>' : '') +
+      '<strong>' +
+      title +
+      '</strong><small>' +
+      detail +
+      '</small></button>'
+    );
+  }
+
+  function continueButton(label) {
+    return (
+      '<button class="primary-button" type="button" data-action="continue"' +
+      (isCurrentValid() ? '' : ' disabled') +
+      '>' +
+      (label || 'Continue') +
+      ' <span>→</span></button>'
+    );
+  }
+
+  function backButton() {
+    return state.currentIndex > 0 && getCurrentStep().id !== 'review'
+      ? '<button class="back-button" type="button" data-action="back"><span>←</span> Back</button>'
+      : '';
+  }
+
+  function counterRow(title, detail, field, value, disableMinus, disablePlus) {
+    return (
+      '<div class="counter-row"><div><strong>' +
+      title +
+      '</strong><small>' +
+      detail +
+      '</small></div><div class="counter-control">' +
+      '<button type="button" data-action="adjust" data-field="' +
+      field +
+      '" data-delta="-1"' +
+      (disableMinus ? ' disabled' : '') +
+      ' aria-label="Remove ' +
+      title.toLowerCase() +
+      '">−</button><span>' +
+      value +
+      '</span><button type="button" data-action="adjust" data-field="' +
+      field +
+      '" data-delta="1"' +
+      (disablePlus ? ' disabled' : '') +
+      ' aria-label="Add ' +
+      title.toLowerCase() +
+      '">+</button></div></div>'
+    );
+  }
+
+  function fareCard(value, detail, className) {
+    return (
+      '<button class="fare-card ' +
+      className +
+      '" type="button" data-action="choose" data-field="cabin" data-value="' +
+      value +
+      '">' +
+      (value === 'PREMIUM' ? '<span class="recommended-tag">MOST COMFORT</span>' : '') +
+      '<span><strong>' +
+      value +
+      '</strong><small>' +
+      detail +
+      '</small></span><span class="fare-arrow">' +
+      (value === 'Recommend for me' ? '✦' : '→') +
+      '</span></button>'
+    );
+  }
+
+  function renderTiming() {
+    var timing = activeTiming();
+    var pathRoot = getCurrentStep().id === 'returnTiming' ? 'returnTiming' : 'outboundTiming';
+    var html = '<div class="timing-control"><fieldset class="segmented-control"><legend>What matters most?</legend>';
+    ['Depart around', 'Arrive by', 'Flexible'].forEach(function (mode) {
+      html +=
+        '<label class="' +
+        (timing.mode === mode ? 'selected' : '') +
+        '"><input type="radio" name="timing-mode" data-model="' +
+        pathRoot +
+        '.mode" data-render="true" value="' +
+        mode +
+        '"' +
+        (timing.mode === mode ? ' checked' : '') +
+        '> ' +
+        mode +
+        '</label>';
+    });
+    html += '</fieldset>';
+    if (timing.mode !== 'Flexible') {
+      html += '<fieldset class="time-windows"><legend>Preferred window</legend>';
+      periods.forEach(function (period) {
+        html +=
+          '<label class="' +
+          (timing.period === period[0] ? 'selected' : '') +
+          '"><input type="radio" name="timing-period" data-model="' +
+          pathRoot +
+          '.period" data-render="true" value="' +
+          period[0] +
+          '"' +
+          (timing.period === period[0] ? ' checked' : '') +
+          '><strong>' +
+          period[0] +
+          '</strong><small>' +
+          period[1] +
+          '</small></label>';
+      });
+      html +=
+        '</fieldset><label class="exact-time"><span>Or add a specific time <small>(optional)</small></span>' +
+        '<input type="time" data-model="' +
+        pathRoot +
+        '.exactTime" value="' +
+        escapeHtml(timing.exactTime) +
+        '"></label>';
+    }
+    return (
+      html +
+      '</div><p class="field-help">This is a preference—not a train set in stone. A person confirms live departure and arrival times.</p>' +
+      continueButton() +
+      backButton()
+    );
+  }
+
+  function reviewItem(step, label, title, detail) {
+    return (
+      '<button type="button" data-action="edit" data-step="' +
+      step +
+      '"><small>' +
+      label +
+      '</small><strong>' +
+      escapeHtml(title) +
+      '</strong><span>' +
+      escapeHtml(detail) +
+      '</span></button>'
+    );
+  }
+
+  function renderReview() {
+    var plan = state.plan;
+    if (state.submitted) {
+      return (
+        '<div class="success-card"><span class="success-icon">✓</span><span class="eyebrow">FULL STEAM AHEAD</span>' +
+        '<h3>That’s the ticket!</h3><p>Your offline brief is ready to roll. Nothing was sent or booked—copy it for a travel specialist to confirm the live train, fare, baggage fees, and total.</p>' +
+        '<div class="success-actions"><button class="primary-button" type="button" data-action="copy">' +
+        (state.copied ? 'Copied—full steam ahead!' : 'Copy trip brief') +
+        '</button><button class="secondary-button" type="button" data-action="edit" data-step="notes">Switch tracks</button></div></div>'
+      );
+    }
+    return (
+      '<div class="review-card"><div class="review-topline"><span>OFFLINE · HUMAN-READY TRIP BRIEF</span><span class="ready-dot">Ready to copy</span></div>' +
+      '<div class="review-route"><strong>ORL</strong><span><i></i>→<i></i></span><strong>MIA</strong></div><div class="review-grid">' +
+      reviewItem('outboundDate', 'OUTBOUND', formatDate(plan.outboundDate), timingAnswer(plan.outboundTiming)) +
+      (plan.tripType === 'Round trip'
+        ? reviewItem('returnDate', 'RETURN', formatDate(plan.returnDate), timingAnswer(plan.returnTiming))
+        : '') +
+      reviewItem('travelers', 'TRAVELERS', totalGuests() + ' guest' + (totalGuests() === 1 ? '' : 's'), plan.adults + ' adult · ' + plan.children + ' child') +
+      reviewItem('cabin', 'CABIN', plan.cabin, 'Best fit: ' + recommendedCabin()) +
+      reviewItem('bags', 'CHECKED BAGS', plan.standardBags + plan.largeBags + ' total', plan.standardBags + ' standard · ' + plan.largeBags + ' large') +
+      reviewItem('lounge', 'LOUNGE', plan.lounge, 'PREMIUM access only') +
+      '</div><div class="ai-recommendation"><span>✦</span><p><small>SUNNY’S CONCIERGE NOTE</small><strong>' +
+      recommendedCabin() +
+      ' is pulling ahead.</strong>' +
+      escapeHtml(recommendationReason()) +
+      '</p></div></div><button class="primary-button handoff-button" type="button" data-action="handoff">Create offline handoff <span>→</span></button>'
+    );
+  }
+
+  function renderAnswer() {
+    var id = getCurrentStep().id;
+    var plan = state.plan;
+    var today = new Date().toISOString().slice(0, 10);
+    if (id === 'tripType') {
+      return (
+        '<div class="choice-grid two-up">' +
+        choiceCard('tripType', 'One way', '→', 'One way', 'Orlando to Miami') +
+        choiceCard('tripType', 'Round trip', '⇄', 'Round trip', 'Return to Orlando') +
+        '</div>'
+      );
+    }
+    if (id === 'outboundDate') {
+      return (
+        '<label class="field-label" for="outbound-date">Travel date</label><input class="date-input" id="outbound-date" type="date" min="' +
+        today +
+        '" data-model="outboundDate" value="' +
+        escapeHtml(plan.outboundDate) +
+        '"><p class="field-help">A person will check live trains and fares for this date.</p>' +
+        continueButton() +
+        backButton()
+      );
+    }
+    if (id === 'returnDate') {
+      return (
+        '<label class="field-label" for="return-date">Return date</label><input class="date-input" id="return-date" type="date" min="' +
+        escapeHtml(plan.outboundDate || today) +
+        '" data-model="returnDate" value="' +
+        escapeHtml(plan.returnDate) +
+        '"><p class="field-help">Choose the day you would like to leave Miami.</p>' +
+        continueButton() +
+        backButton()
+      );
+    }
+    if (id === 'travelers') {
+      return (
+        '<div class="counter-list">' +
+        counterRow('Adults', 'Ages 13+', 'adults', plan.adults, plan.adults <= 1, totalGuests() >= 8) +
+        counterRow('Children', 'Ages 0–12', 'children', plan.children, plan.children <= 0, totalGuests() >= 8) +
+        '</div>' +
+        continueButton() +
+        backButton()
+      );
+    }
+    if (id === 'outboundTiming' || id === 'returnTiming') return renderTiming();
+    if (id === 'cabin') {
+      return (
+        '<div class="fare-list">' +
+        fareCard('SMART Saver', 'Promo example from $39* · auto-assigned seat', '') +
+        fareCard('SMART', 'Promo example from $59* · choose your seat', '') +
+        fareCard('PREMIUM', 'Promo example from $89* · lounge, larger seats, bites & sips', 'premium-card') +
+        fareCard('Recommend for me', 'Sunny will conduct the comparison', 'recommendation-card') +
+        '</div><p class="field-help">*Illustrative current-offer examples, not a quote. Live prices vary.</p>' +
+        backButton()
+      );
+    }
+    if (id === 'bags') {
+      return (
+        '<div class="counter-list">' +
+        counterRow('Standard checked bags', 'Currently $30 in SMART; first standard bag is complimentary in PREMIUM', 'standardBags', plan.standardBags, plan.standardBags <= 0, plan.standardBags >= 8) +
+        counterRow('Large or special bags', 'Currently $60 · up to 70 lb and 33 × 22 × 15 in', 'largeBags', plan.largeBags, plan.largeBags <= 0, plan.largeBags >= 8) +
+        '</div><div class="policy-note"><span>i</span><p>Each guest may bring two complimentary carry-ons plus one personal item. Larger bags must be checked at least 30 minutes before departure.</p></div>' +
+        continueButton() +
+        backButton()
+      );
+    }
+    if (id === 'lounge') {
+      return (
+        '<div class="choice-grid three-up">' +
+        choiceCard('lounge', 'Must have', '', 'Must have', 'Plan on PREMIUM') +
+        choiceCard('lounge', 'Nice to have', '', 'Nice to have', 'Compare the upgrade') +
+        choiceCard('lounge', 'No preference', '', 'No preference', 'Prioritize schedule or fare') +
+        '</div><div class="lounge-detail"><span class="lounge-star">✦</span><p><strong>PREMIUM Lounge</strong> access comes with PREMIUM, alongside complimentary food and drinks, larger seats, and priority boarding in Miami and Orlando.</p></div>' +
+        backButton()
+      );
+    }
+    if (id === 'contact') {
+      return (
+        '<div class="form-grid"><label class="full-field"><span>Full name</span><input type="text" autocomplete="name" data-model="name" value="' +
+        escapeHtml(plan.name) +
+        '" placeholder="Jordan Lee"></label><label><span>Email</span><input type="email" autocomplete="email" data-model="email" value="' +
+        escapeHtml(plan.email) +
+        '" placeholder="jordan@example.com"></label><label><span>Phone <small>(optional)</small></span><input type="tel" autocomplete="tel" data-model="phone" value="' +
+        escapeHtml(plan.phone) +
+        '" placeholder="(407) 555-0142"></label></div><fieldset class="inline-options"><legend>Preferred follow-up</legend>' +
+        '<label><input type="radio" name="contact-method" data-model="contactMethod" value="Email"' +
+        (plan.contactMethod === 'Email' ? ' checked' : '') +
+        '> Email</label><label><input type="radio" name="contact-method" data-model="contactMethod" value="Phone"' +
+        (plan.contactMethod === 'Phone' ? ' checked' : '') +
+        '> Phone</label></fieldset><p class="privacy-note">These details stay in this tab only. Nothing is transmitted.</p>' +
+        continueButton() +
+        backButton()
+      );
+    }
+    if (id === 'notes') {
+      return (
+        '<fieldset class="stacked-options"><legend>Do you need accessibility or boarding assistance?</legend>' +
+        '<label><input type="radio" name="assistance" data-model="assistance" value="No assistance needed"' +
+        (plan.assistance === 'No assistance needed' ? ' checked' : '') +
+        '> No assistance needed</label><label><input type="radio" name="assistance" data-model="assistance" value="Yes, please follow up"' +
+        (plan.assistance === 'Yes, please follow up' ? ' checked' : '') +
+        '> Yes, please follow up</label></fieldset><label class="field-label" for="notes">Notes <small>(optional)</small></label>' +
+        '<textarea id="notes" rows="4" data-model="notes" placeholder="Quiet car, sitting together, flight connection, celebration…">' +
+        escapeHtml(plan.notes) +
+        '</textarea>' +
+        continueButton('Pull into review') +
+        backButton()
+      );
+    }
+    return renderReview();
+  }
+
+  function briefRow(label, value) {
+    return '<div><dt>' + label + '</dt><dd>' + escapeHtml(value) + '</dd></div>';
+  }
+
+  function renderBrief() {
+    var plan = state.plan;
+    root.querySelector('#brief-list').innerHTML =
+      briefRow('Trip', plan.tripType || 'Not chosen') +
+      briefRow('Outbound', plan.outboundDate ? formatDate(plan.outboundDate) : 'Add date') +
+      (plan.tripType === 'Round trip'
+        ? briefRow('Return', plan.returnDate ? formatDate(plan.returnDate) : 'Add date')
+        : '') +
+      briefRow('Travelers', totalGuests() + ' guest' + (totalGuests() === 1 ? '' : 's')) +
+      briefRow('Cabin', plan.cabin || 'Not chosen') +
+      briefRow('Checked bags', plan.standardBags + plan.largeBags) +
+      briefRow('Lounge', plan.lounge || 'Not chosen');
+    root.querySelector('#fit-card-slot').innerHTML =
+      plan.cabin || plan.lounge || plan.standardBags > 0
+        ? '<div class="fit-card"><span>✦</span><div><small>CURRENT BEST FIT</small><strong>' +
+          recommendedCabin() +
+          '</strong><p>' +
+          escapeHtml(recommendationReason()) +
+          '</p></div></div>'
+        : '';
+  }
+
+  function renderHistory() {
+    var completed = getSteps().slice(0, state.currentIndex);
+    root.querySelector('#history').innerHTML = completed
+      .map(function (step) {
+        return (
+          '<div class="message assistant-message compact-message"><span class="assistant-avatar" aria-hidden="true">B</span>' +
+          '<div class="bubble"><p>' +
+          escapeHtml(questionFor(step.id)) +
+          '</p></div></div><div class="message user-message"><button class="bubble user-bubble" type="button" data-action="edit" data-step="' +
+          step.id +
+          '"><span>' +
+          escapeHtml(answerFor(step.id)) +
+          '</span><small>Edit</small></button></div>'
+        );
+      })
+      .join('');
+  }
+
+  function render(shouldScroll) {
+    var availableSteps = getSteps();
+    var step = getCurrentStep();
+    var progress = Math.round((state.currentIndex / (availableSteps.length - 1)) * 100);
+    root.querySelector('#step-count').textContent =
+      'Step ' + (state.currentIndex + 1) + ' of ' + availableSteps.length;
+    root.querySelector('#step-label').textContent = step.label;
+    root.querySelector('#progress-bar').style.width = progress + '%';
+    root.querySelector('#progress-number').textContent = progress + '%';
+    root.querySelector('#current-question').textContent = questionFor(step.id);
+    renderHistory();
+    var answerCard = root.querySelector('#answer-card');
+    answerCard.setAttribute('aria-label', step.label + ' options');
+    answerCard.innerHTML = renderAnswer();
+    renderBrief();
+    if (shouldScroll) {
+      window.setTimeout(function () {
+        var conversation = root.querySelector('#conversation');
+        conversation.scrollTop = conversation.scrollHeight;
+      }, 0);
+    }
+  }
+
+  function updateCurrentControls() {
+    var button = root.querySelector('[data-action="continue"]');
+    if (button) button.disabled = !isCurrentValid();
+    renderBrief();
+  }
+
+  function futureDate(days) {
+    var date = new Date();
+    date.setDate(date.getDate() + days);
+    return date.toISOString().slice(0, 10);
+  }
+
+  function loadDemo() {
+    state.plan = {
+      tripType: 'Round trip',
+      outboundDate: futureDate(14),
+      returnDate: futureDate(17),
+      adults: 2,
+      children: 0,
+      outboundTiming: { mode: 'Depart around', period: 'Morning', exactTime: '09:20' },
+      returnTiming: { mode: 'Arrive by', period: 'Evening', exactTime: '20:00' },
+      cabin: 'PREMIUM',
+      standardBags: 1,
+      largeBags: 0,
+      lounge: 'Must have',
+      name: 'Jordan Lee',
+      email: 'jordan@example.com',
+      phone: '(407) 555-0142',
+      contactMethod: 'Email',
+      assistance: 'No assistance needed',
+      notes: 'Seats together if possible. Celebrating an anniversary in Miami.',
+    };
+    state.currentIndex = getSteps().length - 1;
+    state.submitted = false;
+    state.copied = false;
+    render(true);
+  }
+
+  function summaryText() {
+    var plan = state.plan;
+    var lines = [
+      'BRIGHTLINE TRIP REQUEST — OFFLINE DEMO / HUMAN REVIEW',
+      'Orlando → Miami',
+      'Trip: ' + plan.tripType,
+      'Outbound: ' + formatDate(plan.outboundDate) + ' · ' + timingAnswer(plan.outboundTiming),
+    ];
+    if (plan.tripType === 'Round trip') {
+      lines.push('Return: ' + formatDate(plan.returnDate) + ' · ' + timingAnswer(plan.returnTiming));
+    }
+    lines.push(
+      'Travelers: ' + answerFor('travelers'),
+      'Cabin preference: ' + plan.cabin + ' (best fit: ' + recommendedCabin() + ')',
+      'Checked bags: ' + answerFor('bags'),
+      'Lounge: ' + plan.lounge,
+      'Contact: ' + plan.name + ' · ' + plan.email + (plan.phone ? ' · ' + plan.phone : ''),
+      'Assistance: ' + plan.assistance,
+      'Notes: ' + (plan.notes || 'None'),
+      '',
+      'Generated locally. Nothing was submitted or booked.',
+      'Please confirm live schedule, availability, fare rules, fees, and total before ticketing.',
+    );
+    return lines.join('\n');
+  }
+
+  function finishCopy(success) {
+    state.copied = success;
+    render(false);
+  }
+
+  function fallbackCopy(brief) {
+    var textarea = document.createElement('textarea');
+    textarea.value = brief;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    var copied = document.execCommand('copy');
+    textarea.remove();
+    finishCopy(copied);
+  }
+
+  function copyBrief() {
+    var brief = summaryText();
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard
+        .writeText(brief)
+        .then(function () {
+          finishCopy(true);
+        })
+        .catch(function () {
+          fallbackCopy(brief);
+        });
+    } else {
+      fallbackCopy(brief);
+    }
+  }
+
+  root.addEventListener('click', function (event) {
+    var target = event.target.closest('[data-action]');
+    if (!target || target.disabled) return;
+    var action = target.getAttribute('data-action');
+    if (action === 'choose') {
+      var field = target.getAttribute('data-field');
+      var value = target.getAttribute('data-value');
+      setPlanValue(field, value);
+      if (field === 'tripType' && value === 'One way') {
+        state.plan.returnDate = '';
+        state.plan.returnTiming = { mode: 'Depart around', period: '', exactTime: '' };
+      }
+      state.currentIndex += 1;
+      state.submitted = false;
+      state.copied = false;
+      render(true);
+    } else if (action === 'continue' && isCurrentValid()) {
+      state.currentIndex += 1;
+      state.submitted = false;
+      state.copied = false;
+      render(true);
+    } else if (action === 'back') {
+      state.currentIndex = Math.max(0, state.currentIndex - 1);
+      state.submitted = false;
+      render(true);
+    } else if (action === 'edit') {
+      var index = getSteps().findIndex(function (step) {
+        return step.id === target.getAttribute('data-step');
+      });
+      if (index >= 0) {
+        state.currentIndex = index;
+        state.submitted = false;
+        state.copied = false;
+        render(true);
+      }
+    } else if (action === 'adjust') {
+      var adjustmentField = target.getAttribute('data-field');
+      var delta = Number(target.getAttribute('data-delta'));
+      var minimum = adjustmentField === 'adults' ? 1 : 0;
+      if ((adjustmentField === 'adults' || adjustmentField === 'children') && delta > 0 && totalGuests() >= 8) return;
+      state.plan[adjustmentField] = Math.max(
+        minimum,
+        Math.min(8, state.plan[adjustmentField] + delta),
+      );
+      render(false);
+    } else if (action === 'start-over') {
+      state = freshState();
+      render(true);
+    } else if (action === 'load-demo') {
+      loadDemo();
+    } else if (action === 'handoff') {
+      state.submitted = true;
+      render(true);
+    } else if (action === 'copy') {
+      copyBrief();
+    }
+  });
+
+  root.addEventListener('input', function (event) {
+    var input = event.target.closest('[data-model]');
+    if (!input || input.type === 'radio') return;
+    setPlanValue(input.getAttribute('data-model'), input.value);
+    updateCurrentControls();
+  });
+
+  root.addEventListener('change', function (event) {
+    var input = event.target.closest('[data-model]');
+    if (!input || (input.type === 'radio' && !input.checked)) return;
+    setPlanValue(input.getAttribute('data-model'), input.value);
+    if (input.getAttribute('data-render') === 'true') render(false);
+    else updateCurrentControls();
+  });
+
+  render(false);
+})();
+</script>
+  </body>
+</html>
