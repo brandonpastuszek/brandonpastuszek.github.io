@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="only light">
+  <meta name="description" content="Resume of Brandon Pastuszek, Lead Software Engineer">
+  <meta property="og:title" content="Pastuszek, Brandon — Resume">
+  <meta property="og:description" content="Lead software engineer with 15+ years delivering high-traffic mobile, web, and service platforms.">
+  <meta property="og:image" content="https://brandonpastuszek.github.io/profile_expanded.png">
+  <title>Pastuszek, Brandon — Resume</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --body: #344256;
+      --muted: #657286;
+      --accent: #087b8f;
+      --accent-2: #6d4cc7;
+      --line: #d8e1e8;
+      --soft: #f5f9fa;
+      --paper: #ffffff;
+      --canvas: #edf2f5;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      background: var(--canvas);
+      color-scheme: only light;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--body);
+      background: var(--canvas);
+      font: 15px/1.5 Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-color: #89a8b4;
+      text-underline-offset: 3px;
+    }
+
+    a:hover { color: var(--accent); }
+
+    .resume {
+      width: min(100% - 32px, 1050px);
+      margin: 32px auto;
+      overflow: hidden;
+      border: 1px solid #b9c8d2;
+      border-radius: 18px;
+      background: var(--paper);
+      box-shadow: 0 18px 55px rgba(23, 32, 51, .14);
+    }
+
+    .masthead {
+      position: relative;
+      padding: 58px 54px 32px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .terminal-line {
+      position: absolute;
+      top: 18px;
+      left: 54px;
+      margin: 0;
+      color: #718399;
+      font: 700 .73rem/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      letter-spacing: .06em;
+    }
+
+    .terminal-line::before {
+      content: "●  ●  ●";
+      margin-right: 12px;
+      color: var(--accent);
+      letter-spacing: .18em;
+    }
+
+    h1,
+    h2,
+    h3,
+    p { margin-top: 0; }
+
+    h1 {
+      margin-bottom: 4px;
+      color: var(--ink);
+      font: 800 clamp(2.15rem, 5vw, 3.2rem)/1.04 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      letter-spacing: -.055em;
+    }
+
+    h1::before { content: "<"; color: var(--accent); }
+    h1::after { content: " />"; color: var(--accent); }
+
+    .headline {
+      margin-bottom: 17px;
+      color: var(--accent);
+      font: 700 1rem/1.3 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      letter-spacing: .03em;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px 20px;
+      margin: 0;
+      padding: 0;
+      color: var(--ink);
+      font-size: .89rem;
+      list-style: none;
+    }
+
+    .contact li {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .contact svg {
+      width: 15px;
+      height: 15px;
+      flex: none;
+      color: var(--accent);
+    }
+
+    .summary {
+      max-width: 900px;
+      margin: 25px 0 0;
+      padding: 15px 18px;
+      border: 1px solid #b7ccd4;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 9px 9px 0;
+      background: var(--soft);
+      color: #2f4253;
+      font-size: .98rem;
+    }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .highlights li {
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .highlights strong {
+      display: block;
+      color: var(--ink);
+      font-size: .87rem;
+    }
+
+    .highlights span {
+      color: var(--muted);
+      font-size: .76rem;
+    }
+
+    main { padding: 32px 54px 48px; }
+
+    section + section { margin-top: 30px; }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      color: var(--accent);
+      font: 750 .85rem/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    h2::before {
+      content: "//";
+      color: var(--accent-2);
+      letter-spacing: -.12em;
+    }
+
+    h2::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, var(--line), transparent);
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px 18px;
+      margin: 0;
+    }
+
+    .skill {
+      display: grid;
+      grid-template-columns: 142px minmax(0, 1fr);
+      gap: 10px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+    }
+
+    .skill dt {
+      color: var(--accent);
+      font: 750 .78rem/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .skill dd {
+      margin: 0;
+      color: var(--muted);
+      font-size: .8rem;
+      line-height: 1.42;
+    }
+
+    .experience + .experience { margin-top: 26px; }
+
+    .experience {
+      position: relative;
+      padding-left: 18px;
+      border-left: 1px solid #9fb3bf;
+    }
+
+    .experience::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: -4px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px #ffffff;
+    }
+
+    .experience-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 7px;
+    }
+
+    .experience h3 {
+      margin-bottom: 1px;
+      color: var(--ink);
+      font: 750 1rem/1.3 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .company-meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    .location {
+      color: var(--muted);
+      font-size: .79rem;
+      white-space: nowrap;
+    }
+
+    .roles {
+      margin: 0 0 8px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .role {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      color: var(--ink);
+      font-size: .85rem;
+    }
+
+    .role + .role { margin-top: 2px; }
+    .role strong { font-weight: 750; }
+    .role time { color: var(--muted); white-space: nowrap; }
+
+    .achievements {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .achievements li {
+      margin-top: 5px;
+      padding-left: 2px;
+      color: #3d4b5d;
+      font-size: .86rem;
+    }
+
+    .achievements li::marker { color: var(--accent-2); }
+
+    .education {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .education strong { color: var(--ink); }
+    .education p { margin-bottom: 2px; }
+    .education .location { padding-top: 2px; }
+
+    @media (max-width: 760px) {
+      .resume { width: 100%; margin: 0; border: 0; border-radius: 0; box-shadow: none; }
+      .masthead { padding: 54px 24px 28px; }
+      .terminal-line { left: 24px; }
+      h1 { font-size: clamp(1.5rem, 7.6vw, 1.9rem); letter-spacing: -.065em; }
+      .highlights, .skills { grid-template-columns: 1fr; }
+      main { padding: 28px 24px 40px; }
+      .skill { grid-template-columns: 120px minmax(0, 1fr); }
+      .experience-head, .education { display: block; }
+      .location { white-space: normal; }
+    }
+
+    @page { size: Letter; margin: .42in .46in .45in; }
+
+    @media print {
+      :root {
+        --ink: #111827;
+        --body: #334155;
+        --muted: #526070;
+        --accent: #087b8f;
+        --accent-2: #6d4cc7;
+        --line: #d5e0e7;
+        --soft: #ffffff;
+      }
+
+      html, body { background: #ffffff !important; }
+
+      body {
+        color: var(--body);
+        font-size: 8.25pt;
+        line-height: 1.28;
+      }
+
+      .resume {
+        width: auto;
+        margin: 0;
+        overflow: visible;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .masthead {
+        padding: .12in 0 .16in;
+        border-bottom: 3px solid var(--accent);
+      }
+
+      .terminal-line {
+        position: static;
+        margin-bottom: .08in;
+        font-size: 5.7pt;
+      }
+
+      h1 { margin-bottom: 2px; font-size: 24pt; }
+      .headline { margin-bottom: 7px; font-size: 8.5pt; }
+      .contact { gap: 4px 13px; font-size: 7.4pt; }
+      .contact svg { width: 10px; height: 10px; }
+
+      .summary {
+        margin-top: .11in;
+        padding: .08in .1in;
+        border-color: #aebfc8;
+        background: #ffffff !important;
+        font-size: 8pt;
+      }
+
+      .highlights {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: .06in;
+        margin-top: .09in;
+      }
+
+      .highlights li { padding: .045in .065in; }
+      .highlights strong { font-size: 7.2pt; }
+      .highlights span { font-size: 6.3pt; }
+
+      main { padding: .16in 0 0; }
+      section + section { margin-top: .16in; }
+      h2 { margin-bottom: .075in; font-size: 7.4pt; }
+
+      .skills {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .045in .08in;
+      }
+
+      .skill {
+        grid-template-columns: 1.1in minmax(0, 1fr);
+        gap: .05in;
+        padding: .04in .055in;
+        border-radius: 4px;
+        background: #ffffff !important;
+      }
+
+      .skill dt { font-size: 6.6pt; }
+      .skill dd { font-size: 6.45pt; line-height: 1.25; }
+
+      .experience + .experience { margin-top: .14in; }
+      .experience { padding-left: .11in; }
+      .experience::before { top: 5px; left: -3px; width: 5px; height: 5px; box-shadow: 0 0 0 2px #ffffff; }
+      .experience-head { margin-bottom: .035in; }
+      .experience h3 { font-size: 8.4pt; }
+      .company-meta, .location { font-size: 6.8pt; }
+      .roles { margin-bottom: .045in; }
+      .role { font-size: 7.15pt; }
+      .achievements { padding-left: .13in; }
+      .achievements li { margin-top: .028in; font-size: 7.25pt; line-height: 1.26; }
+
+      .experience-head,
+      .role,
+      .education,
+      .achievements li {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .education { font-size: 7.2pt; }
+      a { text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <article class="resume">
+    <header class="masthead">
+      <p class="terminal-line">~/brandon/resume.html</p>
+      <h1>Brandon Pastuszek</h1>
+      <p class="headline">Lead Software Engineer | Full-Stack, Platform &amp; Product Engineering</p>
+
+      <ul class="contact" aria-label="Contact information">
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8c1.7 3.4 3.2 4.9 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.8 21 3 13.2 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1l-2.2 2.2Z"/></svg>
+          <a href="tel:+15708984588">570-898-4588</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
+          <a href="mailto:brandonpastuszek@gmail.com">brandonpastuszek@gmail.com</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.9 6h-3a15.7 15.7 0 0 0-1.4-3.6A8.1 8.1 0 0 1 18.9 8ZM12 4c.8 1.2 1.5 2.5 1.8 4h-3.6c.3-1.5 1-2.8 1.8-4ZM4.3 14a8 8 0 0 1 0-4h3.4a16.5 16.5 0 0 0 0 4H4.3Zm.8 2h3a15.7 15.7 0 0 0 1.4 3.6A8.1 8.1 0 0 1 5.1 16Zm3-8h-3a8.1 8.1 0 0 1 4.4-3.6A15.7 15.7 0 0 0 8.1 8Zm3.9 12c-.8-1.2-1.5-2.5-1.8-4h3.6c-.3 1.5-1 2.8-1.8 4Zm2.2-6H9.8a14.7 14.7 0 0 1 0-4h4.4a14.7 14.7 0 0 1 0 4Zm.3 5.6a15.7 15.7 0 0 0 1.4-3.6h3a8.1 8.1 0 0 1-4.4 3.6Zm1.8-5.6a16.5 16.5 0 0 0 0-4h3.4a8 8 0 0 1 0 4h-3.4Z"/></svg>
+          <a href="https://brandonpastuszek.github.io/">brandonpastuszek.github.io</a>
+        </li>
+      </ul>
+
+      <p class="summary">Lead software engineer and product-focused technical leader with 15+ years designing, building, and operating high-traffic consumer and enterprise platforms. Hands-on across TypeScript and Angular, Java and Kotlin services, native and cross-platform mobile, APIs, cloud delivery, CI/CD, and observability. Led teams of up to 15 and partnered with product, design, operations, international engineering teams, and executives to take complex initiatives from discovery through production.</p>
+
+      <ul class="highlights" aria-label="Career highlights">
+        <li><strong>15+ years</strong><span>Software delivery</span></li>
+        <li><strong>Teams up to 15</strong><span>Technical leadership</span></li>
+        <li><strong>Mobile · Web · Services</strong><span>Full-stack scope</span></li>
+        <li><strong>Discovery → Production</strong><span>End-to-end ownership</span></li>
+      </ul>
+    </header>
+
+    <main>
+      <section aria-labelledby="expertise-title">
+        <h2 id="expertise-title">Core Expertise</h2>
+        <dl class="skills">
+          <div class="skill">
+            <dt>Languages</dt>
+            <dd>TypeScript, JavaScript, Java, Kotlin, Python, Swift, Objective-C, SQL</dd>
+          </div>
+          <div class="skill">
+            <dt>Web &amp; Services</dt>
+            <dd>Angular, AngularJS, Node.js, Express, Restify, Spring Boot, REST API design, Web Serial API</dd>
+          </div>
+          <div class="skill">
+            <dt>Mobile</dt>
+            <dd>iOS, Android, Flutter, tvOS, native-to-cross-platform modernization</dd>
+          </div>
+          <div class="skill">
+            <dt>Cloud &amp; Data</dt>
+            <dd>AWS, Azure, GCP, Docker, Kafka, Kinesis, SQL databases, MongoDB, DynamoDB, Redis</dd>
+          </div>
+          <div class="skill">
+            <dt>Delivery &amp; Operations</dt>
+            <dd>System design, software architecture, SDLC, CI/CD, GitHub, GitLab, Jenkins, Harness, Splunk, Agile</dd>
+          </div>
+          <div class="skill">
+            <dt>AI-Assisted Engineering</dt>
+            <dd>Claude, ChatGPT, Codex, Cursor, GitHub Copilot, prompt engineering, rapid prototyping and evaluation</dd>
+          </div>
+          <div class="skill">
+            <dt>Leadership</dt>
+            <dd>Technical strategy, workstream leadership, mentoring, cross-functional delivery, executive communication</dd>
+          </div>
+          <div class="skill">
+            <dt>Product Engineering</dt>
+            <dd>Discovery, requirements, architecture, implementation, release, production operations and feedback</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section aria-labelledby="experience-title">
+        <h2 id="experience-title">Experience</h2>
+
+        <article class="experience">
+          <div class="experience-head">
+            <div>
+              <h3>Independent Product &amp; Software Engineering</h3>
+              <p class="company-meta">Self-employed consulting</p>
+            </div>
+            <span class="location">Orlando, FL</span>
+          </div>
+          <ul class="roles">
+            <li class="role"><strong>Senior Product Engineer</strong><time>May 2026–Present</time></li>
+          </ul>
+          <ul class="achievements">
+            <li>Lead engagements from discovery and requirements through product design, full-stack implementation, release, production monitoring, and feedback.</li>
+            <li>Use Claude, Codex, and other AI engineering tools to accelerate prototyping, implementation, debugging, and testing while retaining hands-on technical ownership.</li>
+            <li>Present solution options, technical tradeoffs, and delivery progress to organizational leaders.</li>
+          </ul>
+        </article>
+
+        <article class="experience">
+          <div class="experience-head">
+            <div>
+              <h3>Disney Experiences</h3>
+              <p class="company-meta">Consumer products, operations platforms, and guest technology</p>
+            </div>
+            <span class="location">Orlando, FL</span>
+          </div>
+          <ul class="roles">
+            <li class="role"><strong>Lead Software Engineer</strong><time>Jun 2022–May 2026</time></li>
+            <li class="role"><strong>Senior Software Engineer</strong><time>May 2018–Jun 2022</time></li>
+          </ul>
+          <ul class="achievements">
+            <li>Led teams ranging from one to 15 engineers across mobile, web, backend, integration, and production operations while remaining hands-on in architecture and delivery.</li>
+            <li>Integrated Hong Kong Disneyland’s point-of-sale system with a Cast-facing Lightning Lane booking flow through the Web Serial API, reducing transaction steps and enabling faster in-person sales.</li>
+            <li>Modernized and launched the domestic Guest Service Suite for Hong Kong Disneyland using Angular, TypeScript, and Kotlin; served as the data, testing, and systems-integration lead across international teams.</li>
+            <li>Developed Virtual Queue from its initial launch across Walt Disney World and Disneyland apps, returning thousands of aggregate years of wait time to guests annually and contributing to increased nearby food-and-beverage sales.</li>
+            <li>Migrated Virtual Queue from separate Swift and Kotlin implementations to Flutter, partnered directly with Google, and helped establish a shared mobile and web codebase.</li>
+            <li>Directed migration planning from Braze to Adobe Journey Optimizer through API evaluation, prototyping, architecture, and implementation guidance.</li>
+            <li>Created self-diagnosing Splunk alerts that surfaced production issues before guest reports and gave support teams actionable remediation steps; also introduced Claude, Cursor, and GitHub Copilot into engineering workflows.</li>
+          </ul>
+        </article>
+
+        <article class="experience">
+          <div class="experience-head">
+            <div>
+              <h3>Disney | ABC Television Group</h3>
+              <p class="company-meta">ABC, FX, and National Geographic applications</p>
+            </div>
+            <span class="location">Burbank, CA</span>
+          </div>
+          <ul class="roles">
+            <li class="role"><strong>Senior Software Engineer</strong><time>Oct 2017–May 2018</time></li>
+          </ul>
+          <ul class="achievements">
+            <li>Led an iOS and tvOS redesign of the ABC application, improving the interface and performance while creating a white-label foundation later used to onboard FX and National Geographic.</li>
+            <li>Replaced manual local releases with an automated GitLab-to-Jenkins-to-TestFlight pipeline.</li>
+            <li>Served as technical lead for nine engineers and regularly presented delivery updates to executives.</li>
+          </ul>
+        </article>
+
+        <article class="experience">
+          <div class="experience-head">
+            <div>
+              <h3>Disney Parks &amp; Resorts Digital</h3>
+              <p class="company-meta">Promoted from Web Developer to Software Engineer to Senior Software Engineer</p>
+            </div>
+            <span class="location">Orlando, FL</span>
+          </div>
+          <ul class="roles">
+            <li class="role"><strong>Senior Software Engineer</strong><time>May 2015–Oct 2017</time></li>
+            <li class="role"><strong>Software Engineer</strong><time>Dec 2012–May 2015</time></li>
+            <li class="role"><strong>Web Developer</strong><time>May 2011–Dec 2012</time></li>
+          </ul>
+          <ul class="achievements">
+            <li>Led FastPass+ Simplification across mobile, web, and backend systems, making attraction selection easier while presenting product and technical decisions to executives.</li>
+            <li>Led Great Food Fast, Disney’s first digital food pre-order service, spanning the mobile ordering experience and backend fulfillment.</li>
+            <li>Expanded FastPass selection to Shanghai Disney Resort, Disneyland Resort, and Walt Disney World, and developed itinerary and discovery experiences across web and backend systems.</li>
+            <li>Built Cast-facing iOS tools for booking FastPasses and augmenting physical readers at attraction entrances.</li>
+          </ul>
+        </article>
+
+        <article class="experience">
+          <div class="experience-head">
+            <div>
+              <h3>Trifecta Technologies</h3>
+              <p class="company-meta">Software engineering and rapid prototyping</p>
+            </div>
+            <span class="location">Allentown, PA · Remote</span>
+          </div>
+          <ul class="roles">
+            <li class="role"><strong>Software Engineer</strong><time>Nov 2010–May 2011</time></li>
+          </ul>
+          <ul class="achievements">
+            <li>Developed and maintained native mobile, web, and backend MyMagic+ prototypes for a $1B+ Disney Parks technology initiative while completing a software engineering degree remotely.</li>
+          </ul>
+        </article>
+
+        <article class="experience">
+          <div class="experience-head">
+            <div>
+              <h3>Walt Disney World Parks &amp; Resorts</h3>
+              <p class="company-meta">MyMagic+ research and prototyping</p>
+            </div>
+            <span class="location">Orlando, FL</span>
+          </div>
+          <ul class="roles">
+            <li class="role"><strong>Information Technology Professional Intern</strong><time>May 2010–Nov 2010</time></li>
+          </ul>
+          <ul class="achievements">
+            <li>Built guest-, Cast-, and attraction-facing mobile, web, and backend prototypes and presented concepts to executive teams as often as four times per week.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section aria-labelledby="education-title">
+        <h2 id="education-title">Education</h2>
+        <div class="education">
+          <div>
+            <p><strong>B.S. Software Engineering</strong></p>
+            <p>Minors in Computer Science and Behavioral Economics</p>
+            <p>Rochester Institute of Technology</p>
+          </div>
+          <span class="location">Rochester, NY</span>
+        </div>
+      </section>
+    </main>
+  </article>
+</body>
+</html>
