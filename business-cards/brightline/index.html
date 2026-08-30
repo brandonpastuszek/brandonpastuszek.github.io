@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffdb00">
+  <meta name="description" content="Digital business card for Brandon Pastuszek, Tech Conductor at Brightline.">
+  <title>Brandon Pastuszek — Brightline</title>
+  <style>
+    :root {
+      --brightline-yellow: #ffdb00;
+      --brightline-gold: #d2ae00;
+      --ink: #363636;
+      --navy: #16385f;
+      --paper: #ffffff;
+      --mist: #f3f2ed;
+      --line: #d9d7cf;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { min-height: 100%; }
+
+    body {
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: max(18px, env(safe-area-inset-top)) 12px max(22px, env(safe-area-inset-bottom));
+      color: var(--ink);
+      background:
+        linear-gradient(116deg, rgba(255, 219, 0, .18), transparent 38%),
+        radial-gradient(circle at 80% 20%, rgba(22, 56, 95, .12), transparent 27%),
+        #e9e8e3;
+      font-family: "Futura PT", Futura, "Avenir Next", Avenir, Montserrat, Arial, sans-serif;
+    }
+
+    .page {
+      display: grid;
+      justify-items: center;
+      gap: 14px;
+      width: 100%;
+    }
+
+    .card {
+      container-type: inline-size;
+      position: relative;
+      isolation: isolate;
+      width: min(420px, calc(100vw - 24px));
+      aspect-ratio: 9 / 14;
+      overflow: hidden;
+      border: max(1px, .48cqw) solid var(--ink);
+      border-radius: 5.2cqw;
+      background: var(--paper);
+      box-shadow: 0 24px 64px rgba(19, 29, 42, .20), 0 3px 9px rgba(19, 29, 42, .14);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background:
+        linear-gradient(172deg, transparent 0 73%, rgba(255, 219, 0, .22) 73.2% 75%, transparent 75.2%),
+        linear-gradient(172deg, transparent 0 78%, rgba(54, 54, 54, .08) 78.2% 79%, transparent 79.2%);
+      pointer-events: none;
+    }
+
+    .masthead {
+      position: absolute;
+      inset: 0 0 auto;
+      height: 13.2%;
+      padding: 4.8cqw 5.7cqw 3.3cqw;
+      background: var(--brightline-yellow);
+      border-bottom: .72cqw solid var(--ink);
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4cqw;
+    }
+
+    .brand-logo {
+      display: block;
+      width: 35cqw;
+      height: auto;
+    }
+
+    .department {
+      padding: 1.15cqw 2.4cqw 1cqw;
+      border: .46cqw solid var(--ink);
+      border-radius: 999px;
+      font-size: 2.35cqw;
+      font-weight: 800;
+      letter-spacing: .18em;
+      line-height: 1;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .route {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 2.1cqw;
+      margin-top: 2.4cqw;
+      color: var(--ink);
+      font-size: 2.22cqw;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .route-line {
+      position: relative;
+      height: .48cqw;
+      background: var(--ink);
+    }
+
+    .route-line::before,
+    .route-line::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 1.65cqw;
+      height: 1.65cqw;
+      border: .46cqw solid var(--ink);
+      border-radius: 50%;
+      background: var(--brightline-yellow);
+      transform: translateY(-50%);
+    }
+
+    .route-line::before { left: 0; }
+    .route-line::after { right: 0; }
+
+    .qr-zone {
+      position: absolute;
+      inset: 15.2% 0 auto;
+      display: grid;
+      justify-items: center;
+      gap: 1.7cqw;
+      height: 36.2%;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--navy);
+      font-size: 2.65cqw;
+      font-weight: 900;
+      letter-spacing: .24em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .qr-frame {
+      display: grid;
+      place-items: center;
+      width: 49cqw;
+      height: 49cqw;
+      padding: 2.3cqw;
+      border: .72cqw solid var(--ink);
+      border-radius: 3.3cqw;
+      background: #fff;
+      box-shadow: 1.7cqw 1.7cqw 0 var(--brightline-yellow);
+    }
+
+    .qr-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      image-rendering: pixelated;
+    }
+
+    .avatar-wrap {
+      position: absolute;
+      z-index: 2;
+      top: 51.4%;
+      left: 50%;
+      width: 23.2cqw;
+      height: 23.2cqw;
+      padding: 1.35cqw;
+      border: .72cqw solid var(--ink);
+      border-radius: 50%;
+      background: var(--brightline-yellow);
+      transform: translateX(-50%);
+      box-shadow: 0 1.3cqw 3.6cqw rgba(22, 56, 95, .18);
+    }
+
+    .avatar-wrap::after {
+      content: "";
+      position: absolute;
+      inset: -.75cqw;
+      border: .48cqw solid rgba(255, 219, 0, .8);
+      border-radius: 50%;
+    }
+
+    .avatar {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .identity {
+      position: absolute;
+      top: 66.2%;
+      left: 5.7%;
+      width: 88.6%;
+      text-align: center;
+    }
+
+    .identity h1 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 5.7cqw;
+      font-weight: 900;
+      letter-spacing: -.03em;
+      line-height: 1.03;
+    }
+
+    .title {
+      max-width: 88%;
+      margin: 1.65cqw auto 0;
+      color: var(--navy);
+      font-size: 2.75cqw;
+      font-weight: 750;
+      letter-spacing: .01em;
+      line-height: 1.2;
+    }
+
+    .contacts {
+      position: absolute;
+      top: 75.2%;
+      left: 7.2%;
+      width: 85.6%;
+      border-top: .38cqw solid var(--line);
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 7.4cqw 1fr;
+      align-items: center;
+      min-height: 7.1cqw;
+      border-bottom: .38cqw solid var(--line);
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contact-row:hover .contact-text,
+    .contact-row:focus-visible .contact-text { text-decoration: underline; }
+
+    .icon {
+      display: grid;
+      place-items: center;
+      width: 5.2cqw;
+      height: 5.2cqw;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--navy);
+      font-size: 2.55cqw;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .contact-text {
+      min-width: 0;
+      overflow: hidden;
+      font-size: 2.62cqw;
+      font-weight: 650;
+      letter-spacing: .005em;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .footer {
+      position: absolute;
+      inset: auto 0 0;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      height: 9.5%;
+      padding: 0 5.7cqw;
+      color: var(--ink);
+      background: var(--brightline-yellow);
+      border-top: .72cqw solid var(--ink);
+    }
+
+    .save-contact {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: max-content;
+      padding: 2.15cqw 3.7cqw 1.95cqw;
+      border: .48cqw solid var(--ink);
+      border-radius: 999px;
+      color: #fff;
+      background: var(--ink);
+      font-size: 2.55cqw;
+      font-weight: 850;
+      letter-spacing: .08em;
+      line-height: 1;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .save-contact:focus-visible { outline: .72cqw solid var(--navy); outline-offset: .72cqw; }
+
+    .ride-brighter {
+      font-size: 2.25cqw;
+      font-style: italic;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .track-mark {
+      position: absolute;
+      right: -4cqw;
+      bottom: 10.9%;
+      z-index: -1;
+      width: 34cqw;
+      height: 8cqw;
+      border-top: .55cqw solid rgba(54, 54, 54, .15);
+      border-bottom: .55cqw solid rgba(54, 54, 54, .15);
+      transform: rotate(-8deg);
+    }
+
+    .page-note {
+      max-width: 420px;
+      margin: 0;
+      color: #4b4b4b;
+      font-size: 13px;
+      line-height: 1.45;
+      text-align: center;
+    }
+
+    .page-note a { color: var(--navy); font-weight: 750; }
+
+    body.render-mode {
+      display: block;
+      width: 900px;
+      height: 1400px;
+      min-height: 1400px;
+      overflow: hidden;
+      padding: 0;
+      background: #fff;
+    }
+
+    body.render-mode .page {
+      display: block;
+      width: 900px;
+      height: 1400px;
+    }
+
+    body.render-mode .card {
+      width: 900px;
+      max-width: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    body.render-mode .page-note { display: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; }
+    }
+
+    @media print {
+      @page { size: 90mm 140mm; margin: 0; }
+      body { padding: 0; background: #fff; }
+      .card { width: 90mm; border-radius: 0; box-shadow: none; }
+      .page-note { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page" aria-label="Brandon Pastuszek digital business card">
+    <article class="card">
+      <header class="masthead">
+        <div class="brand-row">
+          <img class="brand-logo" src="assets/brightline-logo.svg" alt="Brightline">
+          <span class="department">Technology</span>
+        </div>
+        <div class="route" aria-label="Train route from departure to arrival">
+          <span>Depart</span>
+          <span class="route-line" aria-hidden="true"></span>
+          <span>Arrive</span>
+        </div>
+      </header>
+
+      <section class="qr-zone" aria-label="Contact QR code">
+        <p class="eyebrow">Scan to connect</p>
+        <div class="qr-frame">
+          <img src="assets/contact-qr.png" alt="QR code linking to Brandon Pastuszek's contact card">
+        </div>
+      </section>
+
+      <div class="avatar-wrap">
+        <img class="avatar" src="assets/brandon-brightline-portrait-contact.jpg" alt="Brandon Pastuszek at a Brightline-inspired train platform">
+      </div>
+
+      <section class="identity">
+        <h1>Brandon Pastuszek</h1>
+        <p class="title">Tech Conductor (Manager, Technology)</p>
+      </section>
+
+      <section class="contacts" aria-label="Contact details">
+        <a class="contact-row" href="tel:+15708984588">
+          <span class="icon" aria-hidden="true">P</span>
+          <span class="contact-text">570-898-4588</span>
+        </a>
+        <a class="contact-row" href="mailto:Brandon.Pastuszek@gobrightline.com">
+          <span class="icon" aria-hidden="true">@</span>
+          <span class="contact-text">Brandon.Pastuszek@gobrightline.com</span>
+        </a>
+        <a class="contact-row" href="https://www.gobrightline.com">
+          <span class="icon" aria-hidden="true">↗</span>
+          <span class="contact-text">gobrightline.com</span>
+        </a>
+      </section>
+
+      <div class="track-mark" aria-hidden="true"></div>
+
+      <footer class="footer">
+        <a class="save-contact" href="https://brandonpastuszek.github.io/business-cards/brightline/Brandon_Pastuszek.vcf">Save contact</a>
+        <span class="ride-brighter">Ride brighter.</span>
+      </footer>
+    </article>
+
+    <p class="page-note">
+      Scan the QR code with a phone camera, or
+      <a href="https://brandonpastuszek.github.io/business-cards/brightline/Brandon_Pastuszek.vcf">download the contact directly</a>.
+    </p>
+  </main>
+  <script>
+    if (new URLSearchParams(window.location.search).has("render")) {
+      document.body.classList.add("render-mode");
+    }
+  </script>
+</body>
+</html>
